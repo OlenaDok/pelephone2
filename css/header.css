@@ -60,7 +60,8 @@
 }
 
 
-/*---- collapse customer details ----*/
+/*---- collapse customer details
+check box ----*/
 input[type='checkbox'] {
     display: none;
 }
@@ -78,6 +79,8 @@ input[type='checkbox'] {
 .lbl-toggle-txt {
     width: 50%;
     padding-right: 1em;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 
 

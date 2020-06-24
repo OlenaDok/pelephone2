@@ -85,12 +85,24 @@
         /*width: 15%;*/
         width: 95%;
         margin-right: 5%;
+        margin-bottom: 1em;
+        margin-top: 0.75em;
     }
     .bill-data-row {
         display: flex;
         flex-flow: row wrap;
-        justify-content: center;
-        width: 95%;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .ttl-col {
+        width: 100%;
+        padding-top: 2em;
+    }
+
+    .t-cntr {
+        text-align: center;
     }
     .usage {
         width: 100%;
@@ -183,6 +195,10 @@
         /*width: 15%;*/
         width: 7em;
         margin-right: 5%;
+    }
+
+    .ttl-col {
+        width: 33%;
     }
 
     .usage {

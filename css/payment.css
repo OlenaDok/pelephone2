@@ -30,7 +30,7 @@
     flex-flow: row;
     justify-content: space-between;
     border: #E6E6E6 solid 1px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 1em;
     box-shadow: 0px 1px 6.48px 1.52px rgba(0, 0, 0, 0.2);
 }

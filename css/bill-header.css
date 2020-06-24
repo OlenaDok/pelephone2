@@ -54,8 +54,8 @@ bill-data-row {
 .ttl-col {
     display: flex;
     flex-flow: column;
-    width: 33%;
-   /* width: 10em; */
+    /* width: 33%;
+     width: 10em; */
 
 }
 
@@ -70,13 +70,22 @@ bill-data-row {
 .lbl-hdr{
     font-size: 1.25em;
     color: #2A85D4;
+
+}
+
+.lbl-hdr-s{
+    font-size: 1.25em;
+    color: #2A85D4;
+    width: 85%;
+    padding-right: 1em;
 }
 
 .bll-prd-ttl {
     font-size: 2em;
     font-weight: bold;
     color: #153958;
-    text-align: right;
+    padding-right: 1em;
+    /*text-align: right; */
     width: 85%;
     /*
     -moz-transform: matrix( 1.22010564226502,0,0,1.22010564226502,0,0);
