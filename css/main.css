@@ -1,0 +1,246 @@
+@font-face {
+    font-family: fbspaceren;
+    src: url(fonts/fbspaceren-regular-webfont.ttf);
+}
+
+@media (max-width:600px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
+    .visibledevice {display:none;}
+    .visibledesktop {display:flex;}
+
+    html {
+        font-size: 10px;
+        line-height: normal;
+        font-family: fbspaceren ;
+    }
+    .wraper {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .main-content {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .cust-det {
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: aliceblue;
+    }
+
+    .cust-det-hdr {
+        display: none;
+    }
+
+    .cust-det-data {
+        display: none;
+        flex-flow: column wrap;
+        width: 85%;
+        margin: 1em 0 1em 0;
+        background-color: aliceblue;
+    }
+
+    .cust-det-row {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0.2em 0 0.2em 0;
+    }
+
+    .mbl-collaps-button {
+        display: flex;
+        width: 100%;
+    }
+    .lbl-toggle {
+        display: flex;
+        font-size: 1.2rem;
+        text-align: right;
+        width: inherit;
+        padding: 0.75rem 0 0.75rem 0;
+        color: #FFFFFF;
+        background: #2a85d4;
+        cursor: pointer;
+        vertical-align: middle;
+        transition: all 0.25s ease-out;
+    }
+
+    .cust-det-cell {
+        color: #818181;
+    }
+
+    .col-lrg {
+        width: 50%;
+        color: #2a85d4;
+    }
+
+    .bll-row {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+    .bll-det-hdr {
+        /*width: 15%;*/
+        width: 95%;
+        margin-right: 5%;
+    }
+    .bill-data-row {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 95%;
+    }
+    .usage {
+        width: 100%;
+    }
+
+    .payment {
+        width: 100%;
+    }
+
+    .add_act {
+        width: 100%;
+    }
+
+    .total_bill {
+        width: 100%;
+    }
+}
+
+@media (min-width:601px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
+    .visibledevice {display:none;}
+    .visibledesktop {display:flex;}
+
+    html {
+        font-size: 16px;
+        line-height: normal;
+        font-family: fbspaceren ;
+    }
+    .wraper {
+        max-width: 1170px;
+        min-width: 601px;
+        margin: auto;
+    }
+
+    .cust-det {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        background-color: #006DB8;
+    }
+
+    .cust-det-hdr {
+        display: flex;
+        align-content: stretch;
+        justify-content: center;
+    }
+
+    .cust-det-data {
+        display: flex;
+        flex-flow: row wrap;
+        width: 75%;
+
+    }
+
+    .cust-det-row {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0.2em 0 0.2em 0;
+    }
+
+    .mbl-collaps-button {
+        display: none;
+    }
+
+    .cust-det-cell {
+        color: #FFFFFF;
+    }
+
+    .col-lrg {
+        width: 50%;
+        color: #FFFFFF;
+    }
+
+    .cust-det-ttl {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .bll-row {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+    }
+
+    .bill-data-row {
+        display: flex;
+        flex-flow: row;
+        width: calc(100% - 7em);
+    }
+
+    .bll-det-hdr {
+        /*width: 15%;*/
+        width: 7em;
+        margin-right: 5%;
+    }
+
+    .usage {
+        width: 35%;
+    }
+    .payment {
+        width: 65%;
+    }
+
+    .add_act {
+        width: 35%;
+    }
+
+    .total_bill {
+        width: 65%;
+    }
+
+    .main-content {
+        max-width: 1200px;
+        min-width: 460px;
+        margin: auto;
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+    }
+}
+
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+.bill-txt-prv {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #2a85d4;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    alignment: center;
+    width: 100%;
+}
+ul li a {
+    text-decoration: none;
+    line-height: 2.3em;
+    width: 100%;
+    color:  #2a6496;
+}
+
+ul li a :hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li  {
+    display: inherit;
+    align-content: center;
+}

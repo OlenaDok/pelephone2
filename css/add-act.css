@@ -1,0 +1,23 @@
+.add_act {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.acts {
+    display: flex;
+    flex-flow: row;
+    justify-content: right;
+    align-items: center;
+    text-align: right;
+    padding-right: 15%;
+
+}
+
+.icon {
+    width: 2.9em;
+    height: 2.5em;
+}
+
+
