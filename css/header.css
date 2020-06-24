@@ -60,11 +60,10 @@
 }
 
 
-/*---- collapse customer details
-check box ----*/
+/*---- collapse customer details ----
 input[type='checkbox'] {
     display: none;
-}
+}*/
 
 
 .mbl-collaps-button {
@@ -79,8 +78,6 @@ input[type='checkbox'] {
 .lbl-toggle-txt {
     width: 50%;
     padding-right: 1em;
-    font-size: 1.25em;
-    font-weight: bold;
 }
 
 
