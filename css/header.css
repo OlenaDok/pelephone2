@@ -60,10 +60,10 @@
 }
 
 
-/*---- collapse customer details ----
+/*---- collapse customer details ----*/
 input[type='checkbox'] {
     display: none;
-}*/
+}
 
 
 .mbl-collaps-button {
