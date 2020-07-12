@@ -19,9 +19,10 @@ bill-data-row {
 }
 
 .bill-txt-prv {
-    font-size: 1.8em;
+    font-size: 30px;
     font-weight: bold;
-    color: #2a85d4;
+    line-height: 0.933;
+    color:  #153A58;
 }
 
 .bll-period-data {

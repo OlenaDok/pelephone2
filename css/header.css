@@ -2,16 +2,14 @@
     display: block;
     background-color: #153958;
     top: 0;
-    padding: 0;
+    padding: 12px;
     margin: 0;
 }
 
 .hdr-row {
     color: #FFFFFF;
-    line-height: 1.2;
     text-align: center;
-    padding: 0.5em 2em 0.5em 2em;
-    font-size: 1.5em;
+    font-size: 24px;
 }
 
 /*---- customer details ----*/
@@ -23,23 +21,22 @@
 
 .cust-det-hdr {
     background-color: #FFFFFF;
-    border-top-left-radius: 85%;
-    border-bottom-left-radius: 85%;
-    width: 15%;
-    height: inherit;
+    border-radius: 50%;
+    height: 166px;
+    width: 166px;
 }
 
 .txt-prv {
-    font-size: 1.8em;
+    font-size: 30px;
     font-weight: bold;
-    color: #2a85d4;
+    color: #2B8FD4;
     width: min-content;
 }
 
 .cust-det-ttl {
-    padding-right: 2%;
+
     width: 100%;
-    font-size: 1.125em;
+    font-size: 18px;
 }
 
 .cust-det-row {
@@ -81,7 +78,13 @@ input[type='checkbox'] {
 }
 
 
+.line {
+    background-image: url('img/line.svg');
+    background-repeat: no-repeat;
+    padding: 1em;
 
+
+}
 
 
 

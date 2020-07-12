@@ -3,6 +3,12 @@
     src: url(fonts/fbspaceren-regular-webfont.ttf);
 }
 
+@font-face {
+    font-family: fbspaceren;
+    font-weight: bold;
+    src: url('fonts/fbspaceren-bold-webfont.ttf');
+}
+
 @media (max-width:600px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
     .visibledevice {display:none;}
     .visibledesktop {display:flex;}
@@ -178,6 +184,8 @@
     .cust-det-ttl {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
     }
     .bll-row {
         display: flex;
@@ -230,13 +238,14 @@ body {
     direction: rtl;
     text-align: right;
 }
-
+/*
 .bill-txt-prv {
-    font-size: 1.8em;
+    font-size: 30px;
     font-weight: bold;
-    color: #2a85d4;
+    line-height: 0.933;
+    color: rgb(21, 57, 88);
 }
-
+*/
 ul {
     list-style-type: none;
     margin: 0;
@@ -260,3 +269,13 @@ li  {
     display: inherit;
     align-content: center;
 }
+
+svg {
+/*    margin-left: 10%;
+    transform: scale(1);
+*/
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+
+}
+

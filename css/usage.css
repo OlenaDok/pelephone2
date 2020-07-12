@@ -1,9 +1,81 @@
 .usage {
-    background-color: #DFF1FF;
+    background-color: #DFF0FF;
     align-self: stretch;
 }
 
 .hdr-c {
     text-align: center;
     padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
+
+.use-txt {
+    font-size: 30px;
+    font-weight: bold;
+    color: #153958;
+    border: #818181 solid 1px;
+}
+
+.usage_btns {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border: #818181 solid 1px;
+}
+
+.use-btn {
+    height: 36px;
+    width: 30%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2A85D4;
+    text-align: center;
+    vertical-align: bottom;
+    padding-top: 12px;
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-in {
+    border-radius: 0 100px 100px 0;
+}
+
+.btn-out {
+    border-radius: 100px 0 0  100px ;
+}
+
+.use-btn:active {
+    color: #FFFFFF;
+    background-color: #006DB8;
+    border: none;
+    transform: translateY(1px);
+    transition-duration: 0.4s;
+}
+.slt-btn {
+    color: #FFFFFF;
+    background-color: #006DB8;
+    border: none;
+}
+.usage_row {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: 95%;
+
+    border: #818181 solid 1px;
+}
+.usage_data {
+    width: 30%;
+}
+.lineChart {
+    width: 60%;
+    border: #818181 solid 1px;
+    align-content: center;
+}
+.usage_data_val {
+    width: 10%;
+}
+
+

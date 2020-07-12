@@ -29,3 +29,34 @@ function displayData() {
         arrow.style.transform = 'rotate(' + x + 'deg)';
     }
 }
+
+
+/*
+function loadChart() {
+    drawLineChart();
+    console.log('drawLineChart in main');
+    drawDonutChart();
+    console.log('drawDonutChart in main');
+}
+*/
+document.addEventListener('DOMContentLoaded', () =>
+ // loadChart()
+console.log('DOMContentLoaded')
+);
+console.log('main');
+/*loadChart();
+var divsMain = document.querySelectorAll('.bll-prd-select');
+console.log('querySelectorAll ' + divsMain.length);
+divsMain.
+document.addEventListener("selectionchange1", function(){
+    console.log('selectionchange');
+    console.log(document.getSelection());
+    loadChart();
+});
+
+document.getElementById("myBtn").addEventListener("click", function(){
+    console.log('event');
+   // console.log(document.getSelection());
+    loadChart();});
+*/
+//bll-prd-select
