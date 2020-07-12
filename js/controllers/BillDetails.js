@@ -9,7 +9,7 @@ var Totbill = JSON.parse(bill_total.innerHTML);
 
 myApp.controller('SubsDetails', function ($scope, ChartService) {
     this.service = ChartService;
-    this.onpage = 0;
+    var onpageIn , onPageOut;
 
     $scope.loaddatachart = function () {
         ChartService.loadChart();
@@ -31,34 +31,60 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
       //  console.log('before serv');
 
 
-      //  console.log('after serv');
+        console.log('useFilter ' + $scope.useFilter);
+        console.log('this.onpageIn ' + onpageIn);
+        console.log('this.onPageOut ' + onPageOut);
     }
 
     $scope.showIn = function (value) {
         $scope.useFilter = value;
        // this.onpage = false;
-         console.log('this.onpage1 ' + this.onpage);
+        console.log('this.showIn ');
+        console.log('useFilter ' + $scope.useFilter);
+        console.log('this.onpageIn ' + onpageIn);
+        console.log('this.onPageOut ' + onPageOut);
 
         if (value == 'in'){
             document.getElementById("usein").classList.add('slt-btn');
             document.getElementById("useout").classList.remove('slt-btn');
             //   //loadChart();
-            this.onpage = !this.onpage;
-            console.log('this.onpage2 ' + this.onpage);
+          //  this.onpage = !this.onpage;
+            if (!onpageIn){
+                console.log('load chart');
+                ChartService.loadChart();
+
+                onPageOut = !onPageOut;
+                onpageIn = !onpageIn;
+            }
+
+           // onPageOut = !onPageOut;
+            console.log('onpageIn ' + onpageIn);
+
         }
         if (value == 'out'){
             document.getElementById("useout").classList.add('slt-btn');
             document.getElementById("usein").classList.remove('slt-btn');
             //  ChartService.loadChart();//    loadChart();
-           this.onpage = !this.onpage;
-        }
-          console.log('this.onpage2 ' + this.onpage);
-        if (this.onpage){
-            ChartService.loadChart();
-          //  this.onpage = !this.onpage;
-        }
+            if (!onPageOut){
+                console.log('load chart');
+                ChartService.loadChart();
 
-        console.log('this.onpage3 ' + this.onpage);
+                onpageIn = !onpageIn;
+                onPageOut = !onPageOut;
+            }
+
+           // onpageIn = !onpageIn;
+
+        }
+        console.log('this.onpageIn ' + onpageIn);
+        console.log('this.onPageOut ' + onPageOut);
+
+
+/*
+        console.log('this.onpageIn ' + onpageIn);
+        console.log('this.onpageIn ' + onPageOut);
+
+ */
     }
     $scope.showData = function (index) {
         console.log('services index: ' + index);
@@ -100,8 +126,9 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
     $scope.start = function() {
         console.log('in initial');
         $scope.billselected = Totbill.bill[0];
-        $scope.$useFilter = 'in';
-        this.onpage = true;
+        $scope.useFilter = 'in';
+        onpageIn = true;
+        onPageOut = false;
         ChartService.loadChart();
     }
 });

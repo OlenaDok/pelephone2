@@ -90,20 +90,22 @@
 }
 
 .donut:after {
-    position: absolute;
-    display: block;
-    height: 120px;
-    width: 120px;
-    left: 50%;
-    top: 50%;
-    box-shadow: inset 0 0 0.1em black;
-    content: attr(data-pct)"%";
+   position: absolute;
+    display: flex;
+    justify-content: center;
+    direction: rtl;
+    height: 60px;
+    width: 45px;
+    left: 80%;
+    top: 72%;
+   /* box-shadow: inset 0 0 0.1em black;*/
+    content: attr(data-pct);
     margin-top: -60px;
     margin-left: -60px;
     border-radius: 100%;
-    line-height: 120px;
+
     font-size: 1em;
-    text-shadow: 0 0 0.5em black;
+   /* text-shadow: 0 0 0.5em black;*/
     transform: rotate(90deg);
 }
 
