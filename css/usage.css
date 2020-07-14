@@ -13,7 +13,7 @@
     font-size: 30px;
     font-weight: bold;
     color: #153958;
-    border: #818181 solid 1px;
+
 }
 
 .usage_btns {
@@ -21,7 +21,7 @@
     justify-content: center;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border: #818181 solid 1px;
+
 }
 
 .use-btn {
@@ -64,18 +64,20 @@
     justify-content: center;
     width: 95%;
 
-    border: #818181 solid 1px;
+
 }
 .usage_data {
     width: 30%;
+    padding-top: 10px;
 }
 .lineChart {
     width: 60%;
-    border: #818181 solid 1px;
+
     align-content: center;
 }
 .usage_data_val {
     width: 10%;
+    padding-top: 10px;
 }
 
 .donut {
@@ -103,10 +105,23 @@
     margin-top: -60px;
     margin-left: -60px;
     border-radius: 100%;
-
-    font-size: 1em;
+/*    font-size: 1em; */
    /* text-shadow: 0 0 0.5em black;*/
-    transform: rotate(90deg);
+
+    color: rgb(21, 57, 88);
+    line-height: 1.2;
+    text-align: center;
+      transform: rotate(90deg);
+}
+
+.chart-ttl {
+    font-size: 30px;
+    color: rgb(21, 57, 88);
+    text-align: center;
+    padding-top: 3%;
+    -moz-transform: matrix( 0.64819885440779,0,0,0.64819885440778,0,0);
+    -webkit-transform: matrix( 0.64819885440779,0,0,0.64819885440778,0,0);
+    -ms-transform: matrix( 0.64819885440779,0,0,0.64819885440778,0,0);
 }
 
 

@@ -14,7 +14,7 @@
     .visibledesktop {display:flex;}
 
     html {
-        font-size: 12px;
+        font-size: 16px;
         line-height: normal;
         font-family: fbspaceren ;
     }
@@ -22,7 +22,9 @@
         max-width: 600px;
         margin: auto;
     }
-
+    .wrap-hdr {
+        display: none;
+    }
     .main-content {
         display: flex;
         flex-flow: column;
@@ -45,7 +47,7 @@
     .cust-det-data {
         display: none;
         flex-flow: column wrap;
-        width: 85%;
+
         margin: 1em 0 1em 0;
         background-color: aliceblue;
     }
@@ -78,34 +80,32 @@
     }
 
     .col-lrg {
-        width: 50%;
+        width: 55%;
         color: #2a85d4;
     }
 
-    .bll-row {
-        display: flex;
+    .bll-hdr{
         flex-flow: column;
-        justify-content: center;
+    }
+
+    .bll-row {
+        flex-flow: column;
+        width: 100%;
     }
     .bll-det-hdr {
-        /*width: 15%;*/
         width: 95%;
-        margin-right: 5%;
-        margin-bottom: 1em;
-        margin-top: 0.75em;
     }
     .bill-data-row {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-
-    }
-
-    .ttl-col {
         width: 100%;
-        padding-top: 2em;
     }
+    .bll-period {
+        width: 49%;
+    }
+
 
     .t-cntr {
         text-align: center;
@@ -125,9 +125,31 @@
     .total_bill {
         width: 100%;
     }
+    .bill-txt-prv {
+        padding-right: 5%;
+    }
+    .lbl-hdr {
+        width: 49%;
+    }
+
+    .ttl-grp{
+        padding-top: 10%;
+        padding-right: 5%;
+    }
+    .lbl-hdr-s{
+        width: 100%;
+    }
+    .payment_total_row {
+        width: 100%;
+    }
+
+    .p-rght {
+        padding-left: 50%;
+    }
+
 }
 
-@media (min-width:601px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
+@media only screen and (min-device-width: 601px) and (max-device-width: 900px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
     .visibledevice {display:none;}
     .visibledesktop {display:flex;}
 
@@ -146,13 +168,22 @@
         display: flex;
         flex-flow: row wrap;
         align-items: center;
+      /*  background-color: #006DB8;*/
+        position: relative;
+        height: 125px;
+        z-index: 1;
+    }
+
+    .wrap-cust-det {
         background-color: #006DB8;
+        min-height: 125px;
     }
 
     .cust-det-hdr {
         display: flex;
         align-content: stretch;
         justify-content: center;
+        left: 70px;
     }
 
     .cust-det-data {
@@ -186,28 +217,23 @@
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
+        background-color: #006DB8;
     }
     .bll-row {
-        display: flex;
         flex-flow: row;
-        justify-content: center;
+        width: 80%;
     }
 
     .bill-data-row {
         display: flex;
         flex-flow: row;
-        width: calc(100% - 7em);
+        width: 100%;
     }
 
-    .bll-det-hdr {
-        /*width: 15%;*/
-        width: 7em;
-        margin-right: 5%;
+    .bll-hdr{
+        flex-flow: row;
     }
 
-    .ttl-col {
-        width: 33%;
-    }
 
     .usage {
         width: 35%;
@@ -232,7 +258,164 @@
         flex-flow: row;
         justify-content: center;
     }
+
+    .bll-period {
+        width: 25%;
+    }
+
+    .bll-det-hdr {
+        width: 20%;
+    }
+    .bill-txt-prv {
+        padding: 5% 25% 15% 0;
+    }
+    .lbl-hdr {
+        width: 25%;
+    }
+    .lbl-hdr-s{
+        width: 70%;
+    }
+
+    .payment_total_row {
+        width: 75%;
+        padding:  0.25em 0.25em 0.25em 1.5em;
+    }
 }
+
+@media (min-width:901px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
+    .visibledevice {display:none;}
+    .visibledesktop {display:flex;}
+
+    html {
+        font-size: 16px;
+        line-height: normal;
+        font-family: fbspaceren ;
+    }
+    .wraper {
+        max-width: 1170px;
+        min-width: 901px;
+        margin: auto;
+    }
+
+    .cust-det {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        /*  background-color: #006DB8;*/
+        position: relative;
+        height: 125px;
+        z-index: 1;
+    }
+
+    .wrap-cust-det {
+        background-color: #006DB8;
+        min-height: 125px;
+    }
+
+    .cust-det-hdr {
+        display: flex;
+        align-content: stretch;
+        justify-content: center;
+        left: 40px;
+    }
+
+    .cust-det-data {
+        display: flex;
+        flex-flow: row wrap;
+        width: 75%;
+
+    }
+
+    .cust-det-row {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0.2em 0 0.2em 0;
+    }
+
+    .mbl-collaps-button {
+        display: none;
+    }
+
+    .cust-det-cell {
+        color: #FFFFFF;
+    }
+
+    .col-lrg {
+        width: 50%;
+        color: #FFFFFF;
+    }
+
+    .cust-det-ttl {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        background-color: #006DB8;
+    }
+    .bll-row {
+        flex-flow: row;
+        width: 80%;
+    }
+
+    .bill-data-row {
+        display: flex;
+        flex-flow: row;
+        width: 100%;
+    }
+
+    .bll-hdr{
+        flex-flow: row;
+    }
+
+
+    .usage {
+        width: 35%;
+    }
+    .payment {
+        width: 65%;
+    }
+
+    .add_act {
+        width: 35%;
+    }
+
+    .total_bill {
+        width: 65%;
+    }
+
+    .main-content {
+        max-width: 1200px;
+        min-width: 460px;
+        margin: auto;
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+    }
+
+    .bll-period {
+        width: 25%;
+    }
+
+    .bll-det-hdr {
+        width: 20%;
+    }
+    .bill-txt-prv {
+        padding: 5% 25% 15% 0;
+    }
+    .lbl-hdr {
+        width: 25%;
+    }
+
+    .lbl-hdr-s{
+        width: 100%;
+    }
+
+    .payment_total_row {
+        width: 75%;
+        padding:  0.25em 0.25em 0.25em 1.5em;
+    }
+}
+
 
 body {
     direction: rtl;
@@ -255,7 +438,7 @@ ul {
 }
 ul li a {
     text-decoration: none;
-    line-height: 2.3em;
+
     width: 100%;
     color:  #2a6496;
 }

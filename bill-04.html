@@ -32,67 +32,72 @@
             <label for="collapsible" class="lbl-toggle-txt">פרטי הלקוח</label>
             <label for="collapsible" id="lbl-toggle-arr" class="lbl-toggle-arr">&#10095;</label>
         </div>
-        <article class="cust-det-hdr">
-            <p class="txt-prv"> פרטי הלקוח</p>
-        </article>
-        <article id="cust-det-data" class="cust-det-data ">
-            <div class="cust-det-ttl">
-                <div class="cust-det-col col-3-1">
-                    <div class="cust-det-row">
-                        <div class="cust-det-cell  col-sml">
-                            מספר לקוח
-                        </div>
-                        <div class="cust-det-cell col-lrg bld">
-                            123456789
-                        </div>
-                    </div>
-                    <div class="cust-det-row">
-                        <div class="cust-det-cell  col-sml">
-                            ת''ז / עסק מורשה
-                        </div>
-                        <div class="cust-det-cell col-lrg bld">
-                            987654321
-                        </div>
-                    </div>
-                </div>
-                <div class="cust-det-col col-3-1">
-                    <div class="cust-det-row">
-                        <div class="cust-det-cell col-sml">
-                            הפקת החשבונית
-                        </div>
-                        <div class="cust-det-cell col-lrg bld">
-                            14/06/2020
-                        </div>
-                    </div>
-                    <div class="cust-det-row">
-                        <div class="cust-det-cell col-sml">
-                            אופן משלוח
-                        </div>
-                        <div class="cust-det-cell col-lrg bld">
-                            147258
-                        </div>
-                    </div>
-                </div>
-                <div class="cust-det-col col-3-2">
-                    <div class="cust-det-row">
-                        <div class="cust-det-cell col-sml">
-                            כתובת דוא''ל
-                        </div>
-                        <div class="cust-det-cell col-lrg bld">
-                            example@example.com
-                        </div>
-                    </div>
-                    <div class="cust-det-row">
-                        <div class="cust-det-cell col-sml">
-                            יחוייב באמצעות
-                        </div>
-                        <div class="cust-det-cell col-lrg bld">
-                            כרטיס אשראי מסטר קרד
-                        </div>
-                    </div>
-                </div>
+        <section class="wrap-cust-det">
+            <div class="wrap-hdr">
+                <article class="cust-det-hdr">
+                    <p class="txt-prv"> פרטי הלקוח</p>
+                </article>
             </div>
-        </article>
+
+            <article id="cust-det-data" class="cust-det-data ">
+                <div class="cust-det-ttl">
+                    <div class="cust-det-col col-3-1">
+                        <div class="cust-det-row">
+                            <div class="cust-det-cell  col-sml">
+                                מספר לקוח
+                            </div>
+                            <div class="cust-det-cell col-lrg bld">
+                                123456789
+                            </div>
+                        </div>
+                        <div class="cust-det-row">
+                            <div class="cust-det-cell  col-sml">
+                                ת''ז / עסק מורשה
+                            </div>
+                            <div class="cust-det-cell col-lrg bld">
+                                987654321
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cust-det-col col-3-1">
+                        <div class="cust-det-row">
+                            <div class="cust-det-cell col-sml">
+                                הפקת החשבונית
+                            </div>
+                            <div class="cust-det-cell col-lrg bld">
+                                14/06/2020
+                            </div>
+                        </div>
+                        <div class="cust-det-row">
+                            <div class="cust-det-cell col-sml">
+                                אופן משלוח
+                            </div>
+                            <div class="cust-det-cell col-lrg bld">
+                                147258
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cust-det-col col-3-2">
+                        <div class="cust-det-row">
+                            <div class="cust-det-cell col-sml">
+                                כתובת דוא''ל
+                            </div>
+                            <div class="cust-det-cell col-lrg bld">
+                                example@example.com
+                            </div>
+                        </div>
+                        <div class="cust-det-row">
+                            <div class="cust-det-cell col-sml">
+                                יחוייב באמצעות
+                            </div>
+                            <div class="cust-det-cell col-lrg bld">
+                                כרטיס אשראי מסטר קרד
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
     </section>
 
     <section class="bll-hdr" >
@@ -104,12 +109,12 @@
             <div class="bill-data-row">
                 <div class="bll-period">
                     <div class="bll-period-data">
-                        <span class="lbl-hdr ">תקופת החשבונית</span>
+                        <span class="lbl-hdr-cll ">תקופת החשבונית</span>
                         <span class="bll-prd-cell bld">21.5.2019 - 22.4.2019</span>
                     </div>
                 </div>
-                <div class="lbl-hdr " >
-                    <span>הצג חשבון לפי</span>
+                <div class="lbl-hdr" >
+                    <span class="lbl-hdr-cll">הצג חשבון לפי</span>
                     <select class="bll-prd-select"
                             ng-init="start()"
                             id="myBtn"
@@ -119,13 +124,19 @@
                             >
                     </select>
                 </div>
-                <div class="ttl-col ">
-                    <div class="lbl-hdr-s bld t-cntr ">סה''כ כולל מע''מ</div>
-                    <div class="bll-prd-ttl t-cntr "> {{billselected.total }}</div>
-                    <div class="bll-prd-cell t-cntr">
-                        <div class="line"></div>
+                <section class="ttl-col ">
+                    <div class="ttl-cell">
+                        <div class="ttl-grp">
+                            <div class="lbl-hdr-s bld">סה''כ כולל מע''מ</div>
+                            <div class="ttl-cell bll-prd-ttl"> {{billselected.total }}</div>
+
+                        </div>
+                        <div class="ttl-cell-line">
+                            <div class="line"></div>
+                        </div>
                     </div>
-                </div>
+
+                </section>
             </div>
 
         </section>
@@ -144,7 +155,7 @@
             <div class="cntr " ng-init="useFilter='in'">
                 <div ng-if="billselected.index==0" >
                     <div  ng-repeat="useditem in billselected.service_usageALL | filter:useFilter">
-                        <div>מנוי {{useditem.sub}}  </div>
+                        <div class="chart-ttl">מנוי {{useditem.sub}}  </div>
                         <div class="usage_row">
                             <label class="usage_data">{{useditem.used[0].GB}}</label>
                             <div class="lineChart" id="first1" data-value="{{useditem.used[0].procentGB}}" data-text="#0B69BA"></div>
@@ -164,17 +175,17 @@
                 </div>
                 <div ng-if="billselected.index!=0" >
                     <div  ng-repeat="useditem in billselected.service_usage | filter:useFilter">
-                        <div>כמה צרכת מהחבילה שלך?</div>
+                        <div class="chart-ttl">כמה צרכת מהחבילה שלך?</div>
                         <div class="usage_row">
 
                             <div class="donut" data-value="{{useditem.used[0].procentGB}}" data-text="#0B69BA" data-pct="{{useditem.used[0].GB}}"></div>
                         </div>
-                        <div>כמה צרכת דקות שיחה?</div>
+                        <div class="chart-ttl">כמה צרכת דקות שיחה?</div>
                         <div class="usage_row">
 
                             <div class="donut" data-value="{{useditem.used[0].procentMin}}" data-text="#E1248E" data-pct="{{useditem.used[0].Min}}"></div>
-                        </div>
-                        <div>כמה צרכת SMS ?</div>
+                        </div >
+                        <div class="chart-ttl">כמה צרכת SMS ?</div>
                         <div class="usage_row">
 
                             <div class="donut" data-value="{{useditem.used[0].procentSms}}" data-text="#0B69BA" data-pct="{{useditem.used[0].SMS}}"></div>
@@ -186,22 +197,24 @@
 
         </section>
         <section class="payment " >
-            <div class="bill-txt-prv hdr-r"> פירוט חיובים </div>
+            <div class="use-txt hdr-r"> פירוט חיובים </div>
             <div class="bill_parts ">
                 <div class="bill_data">
                     <ul >
-                        <li ng-repeat="item in billselected.bill_parts" >
-                            <a class="part1" ng-click="toggleDisplay($index)" >
-                                <label  class="item"><label class="plus">+</label></label>
-                                <label  class="item"><label class="icon1"></label></label>
-                                <div class="item_big">
-                                    <label  class="title bld"> {{ item.bill_part_desc }} -  {{result}}</label>
-                                    <label  class="subtitle">{{ item.bill_part_msg }}</label></div>
-                                <label  class="item_total bld">{{ item.bill_part_total }}  &#8362; </label>
+                        <li ng-repeat="item in billselected.bill_parts" ng-click="toggleDisplay($index)">
+                            <a class="part1">
+                                <label  class="item"><label class="plus"></label></label>
+                                <div class="item_data">
+                                    <div  class="item"><div class="icon1" ></div></div>
+                                    <div class="item_big">
+                                        <label  class="title"> {{ item.bill_part_desc }}</label>
+                                        <label  class="subtitle">{{ item.bill_part_msg }}</label></div>
+                                    <label  class="item_total bld">{{ item.bill_part_total }}  &#8362; </label>
+                                </div>
+
                                 <label  class="item sml hide2"><i class="fa fa-info-circle " style="color: #005cbf; size: 2em"></i></label>
                             </a>
-
-                            <div class="part2" ng-show="showP2($index, part, status)" ng-init="status=0">
+                            <div class="part2" ng-show="showp2==($index)">
                                 <div class="part2_data ">
                                     <div class="data header">
                                         <div class="item_l title ">תיאור</div>
@@ -210,7 +223,7 @@
                                     </div>
                                     <div class="data data_row"  ng-repeat="servitem in item.services">
                                         <div class="item_l ">{{ servitem.name }}</div>
-                                        <div class="item_s ">{{ servitem.rate }} + {{billselected.index }}</div>
+                                        <div class="item_s ">{{ servitem.rate }}</div>
                                         <div class="item_s cntr bld">{{ servitem.total }}</div>
                                     </div>
                                 </div>
@@ -222,6 +235,7 @@
                                 </div>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -272,7 +286,7 @@
         </section>
         <section class="total_bill all_total">
             <div class="payment_total blue">
-                <div >
+
                     <div class="payment_total_row ">
 
                         <span class="payment_total_desc">
@@ -293,24 +307,24 @@
                   </span>
                         <span class="payment_total_v">{{billselected.index }} &#8362; </span>
                     </div>
-                </div>
+
             </div>
 
             <div class="payment_total dark_blue">
-                <div style="width: 80%">
-                    <div class="payment_total_row ">
-                        <span class="empty_cell"></span>
-                        <div class="payment_total_desc small-v">
-                            סה''כ חשבונית נוכחית כולל מע''מ
-                        </div>
-                        <div class="payment_total_v">{{billselected.total }} &#8362;
-                            <br/><br/>
-                            <p ></p>
 
+                    <div class="payment_total_row ">
+
+                        <div class="payment_total_desc small-v">
+                            סה''כ חשבונית נוכחית <br/>כולל מע''מ
+                        </div>
+                        <div class="payment_total_v spr ">{{billselected.total }}
+                            <div class="ttl-cell-line p-rght">
+                                <div class="line"></div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                `</div>
         </section>
     </section>
 
@@ -629,6 +643,2348 @@
     ]
     }
 </div>
+
+<div bill-data="bill-parts"  style="visibility: hidden" id="bill_total1">
+    {
+    "bill": [
+    {
+    "index": "0",
+    "subsciber": "כל המנויים",
+    "total": "&#8362; 550.95",
+    "bill_parts": [
+    {
+    "bill_part_total": "617.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "",
+    "total": "617.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 15GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 5GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת מענה קולי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "",
+    "total": "0.00"
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "3.91",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "",
+    "total": "617.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 15GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 5GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת מענה קולי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה",
+    "rate": "6:30",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה ג'וואל",
+    "rate": "1:44",
+    "total": "2.37"
+    },
+    {
+    "name": "דקות שיחה לחו''ל בזק בינלאומי",
+    "rate": "1:17",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה לחו''ל נטוויז'ן",
+    "rate": "0:08",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "2564:15",
+    "total": "0.00"
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות אל בזק",
+    "rate": "1",
+    "total": "0.34"
+    },
+    {
+    "name": "שליחת MMS (תמונה)",
+    "rate": "1",
+    "total": "0.51"
+    },
+    {
+    "name": "שליחת MMS (תמונה) אל גולן טלקום",
+    "rate": "1",
+    "total": "0.68"
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "22",
+    "total": "0.00"
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "11485.188",
+    "total": "0.00"
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-150.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "",
+    "total": "617.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 15GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 5GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת מענה קולי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה",
+    "rate": "6:30",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה ג'וואל",
+    "rate": "1:44",
+    "total": "2.37"
+    },
+    {
+    "name": "דקות שיחה לחו''ל בזק בינלאומי",
+    "rate": "1:17",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה לחו''ל נטוויז'ן",
+    "rate": "0:08",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "2564:15",
+    "total": "0.00"
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות אל בזק",
+    "rate": "1",
+    "total": "0.34"
+    },
+    {
+    "name": "שליחת MMS (תמונה)",
+    "rate": "1",
+    "total": "0.51"
+    },
+    {
+    "name": "שליחת MMS (תמונה) אל גולן טלקום",
+    "rate": "1",
+    "total": "0.68"
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "22",
+    "total": "0.00"
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "11485.188",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-150.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "1",
+    "subsciber": "0503029247",
+    "total": "&#8362; 40.83",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "169:42",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "3",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "247.818",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "169:42",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "3",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "247.818",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "2",
+    "subsciber": "0503049019",
+    "total": "&#8362; 19.89",
+    "bill_parts": [
+    {
+    "bill_part_total": "17.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "17.00",
+    "total": "17.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 5GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "3",
+    "subsciber": "0505318666",
+    "total": "&#8362; 41.23",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.34",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "110:26",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה לחו''ל נטוויז'ן  ארצות הברית",
+    "rate": "0:08",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "3",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות אל בזק",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "720.397",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "110:26",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה לחו''ל נטוויז'ן  ארצות הברית",
+    "rate": "0:08",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "3",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות אל בזק",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "720.397",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "4",
+    "subsciber": "0505399922",
+    "total": "&#8362; 41.43",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.51",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "651:08",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "שליחת MMS (תמונה)",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "1038.450",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "651:08",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "שליחת MMS (תמונה)",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "1038.450",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "5",
+    "subsciber": "0505493040",
+    "total": "&#8362; 58.38",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "6",
+    "subsciber": "0505529080",
+    "total": "&#8362; 40.83",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "231:33",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "692.400",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "231:33",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "692.400",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "7",
+    "subsciber": "0505737305",
+    "total": "&#8362; 40.83",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "258:52",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "5518.759",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "258:52",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "5518.759",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "8",
+    "subsciber": "0505802374",
+    "total": "&#8362; 41.63",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.68",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "299:43",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "15",
+    "total": ""
+    },
+    {
+    "name": "שליחת MMS (תמונה) אל גולן טלקום",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "1214.198",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פרטי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "299:43",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "15",
+    "total": ""
+    },
+    {
+    "name": "שליחת MMS (תמונה) אל גולן טלקום",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "1214.198",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "9",
+    "subsciber": "0506687309",
+    "total": "&#8362; 19.89",
+    "bill_parts": [
+    {
+    "bill_part_total": "17.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "17.00",
+    "total": "17.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 5GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "17.00",
+    "total": "17.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 5GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "6.303",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "10",
+    "subsciber": "0506729061",
+    "total": "&#8362; 39.90",
+    "bill_parts": [
+    {
+    "bill_part_total": "34.10",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "34.10",
+    "total": "34.10"
+    },
+    {
+    "name": "חבילת גלישה בנפח 15GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "11",
+    "subsciber": "0507214299",
+    "total": "&#8362; 40.83",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    },
+    {
+    "name": " הברית",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה",
+    "rate": "1:49",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "252:39",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה לחו''ל בזק בינלאומי  ארצות ",
+    "rate": "דקות שיחה לחו''ל בזק בינלאומי  ארצות ",
+    "total": "דקות שיחה לחו''ל בזק בינלאומי  ארצות "
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "382.559",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "12",
+    "subsciber": "0507777603",
+    "total": "&#8362; 43.61",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "2.37",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה ג'וואל",
+    "rate": "1:44",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "205:59",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "605.903",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה ג'וואל",
+    "rate": "1:44",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "205:59",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "605.903",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "13",
+    "subsciber": "0544870032",
+    "total": "&#8362; 40.83",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "257:43",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "379.393",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות תיקונים Basic ממלאי פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "257:43",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "379.393",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    },
+    {
+    "index": "14",
+    "subsciber": "0545693694",
+    "total": "&#8362; 40.83",
+    "bill_parts": [
+    {
+    "bill_part_total": "49.90",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים קבועים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת מענה קולי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "חיובים משתנים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת מענה קולי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה",
+    "rate": "4:41",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "126:30",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "679.003",
+    "total": ""
+    }
+    ],
+    "submsg": ""
+    },
+    {
+    "bill_part_total": "-15.00",
+    "bill_part_desc": "",
+    "bill_part_msg": "הטבות/זיכויים",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי)",
+    "rate": "49.90",
+    "total": "49.90"
+    },
+    {
+    "name": "חבילת הרחבת נפח גלישה 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת מענה קולי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 20GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת ALL IN לעסק",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות פקס למייל",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת שיר בהמתנה ג'ינגל עסקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "דקות שיחה",
+    "rate": "4:41",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "126:30",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "679.003",
+    "total": ""
+    },
+    {
+    "name": "הטבה שירותית",
+    "rate": "",
+    "total": "-15.00"
+    }
+    ],
+    "submsg": ""
+    }
+    ]
+    }
+    ]
+    }
+</div>
+
 <script type="text/javascript">
     angular.module('myBill', []);
 </script>

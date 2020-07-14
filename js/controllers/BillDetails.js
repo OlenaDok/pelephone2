@@ -10,6 +10,9 @@ var Totbill = JSON.parse(bill_total.innerHTML);
 myApp.controller('SubsDetails', function ($scope, ChartService) {
     this.service = ChartService;
     var onpageIn , onPageOut;
+    let  partToOpen = {};
+    partToOpen.status = false;
+
 
     $scope.loaddatachart = function () {
         ChartService.loadChart();
@@ -52,7 +55,6 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
             if (!onpageIn){
                 console.log('load chart');
                 ChartService.loadChart();
-
                 onPageOut = !onPageOut;
                 onpageIn = !onpageIn;
             }
@@ -68,7 +70,6 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
             if (!onPageOut){
                 console.log('load chart');
                 ChartService.loadChart();
-
                 onpageIn = !onpageIn;
                 onPageOut = !onPageOut;
             }
@@ -86,24 +87,59 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
 
  */
     }
+
     $scope.showData = function (index) {
         console.log('services index: ' + index);
         var indexElem = document.getElementById("$index");
         console.log('indexElem: ' + indexElem);
+        partToOpen.index = index;
     }
 
     $scope.toggleDisplay = function(index) {
         console.log('toggleDisplay index: ' + index);
         $scope.part = index;
        // $scope.show = ! $scope.show;
-        console.log('$scope.status: ' + $scope.status);
+        var divs =  document.getElementsByClassName("lineChart");
+        if ( $scope.showp2  === index ){
+            $scope.showp2  = -index ;
+            console.log('showp2: ' +  $scope.showp2);
+        }
+        else {
+            $scope.showp2 = index ;
+            console.log('showp2: ' +  $scope.showp2);
+        }
+
+
+
+
+        $scope.part2 = function(param){
+            var to_return;
+
+            partToOpen.index = param;
+         //   partToOpen.status = !partToOpen.status;
+            console.log('partToOpen part2 before check ' + partToOpen.index);
+            console.log('partToOpen part2 before check' + partToOpen.status);
+
+            if($scope.part === partToOpen.index){
+                to_return = !partToOpen.status;
+
+                console.log('to_return in check' + to_return);
+
+            }else {
+                return to_return = false;
+            }
+            partToOpen.status = to_return;
+            console.log('to_return after check' + to_return);
+            return to_return;
+        }
 
         //$scope.isOpen = ! $scope.isOpen;
         $scope.showP2 = function(index, part, status) {
-
             console.log('index: ' + index + ' part= ' + part + ' status=' + status);
             var to_return;
-            if (index === part ){
+            partToOpen.status = true;
+            if (partToOpen.index === part && partToOpen.status === true){
+                partToOpen.status = !partToOpen.status;
                 $scope.status = 1;
              //  to_return = true;
                 return true;
@@ -115,6 +151,7 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
 
             }else {
                 to_return = false;
+                partToOpen.status = !partToOpen.status;
 
             }
             //return $scope.isOpen;
@@ -130,6 +167,9 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         onpageIn = true;
         onPageOut = false;
         ChartService.loadChart();
+        partToOpen.index = 0;
+        partToOpen_status = false;
+        $scope.showp2 = -1;
     }
 });
 

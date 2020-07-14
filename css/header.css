@@ -4,6 +4,8 @@
     top: 0;
     padding: 12px;
     margin: 0;
+    position: relative;
+    z-index: 5;
 }
 
 .hdr-row {
@@ -16,14 +18,45 @@
 
 .cust-det {
     width: 100%;
+}
+.cust-det-data{
+    width: 85%;
+    position: relative;
+    z-index: 10;
+    justify-content: center;
+}
+
+.wrap-cust-det {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    margin: 0;
+}
+.wrap-hdr {
+    background: transparent;
+    max-height: 125px;
+    max-width: 160px;
+    position: relative;
+    z-index: 2;
+    width: 15%;
 
 }
 
 .cust-det-hdr {
-    background-color: #FFFFFF;
+    width: 200px;
+    height: 200px;
+    top:  -40px;
+   /* left: 70px; for 900px */
     border-radius: 50%;
-    height: 166px;
-    width: 166px;
+    background-color: #FFFFFF;
+    position: relative;
+    text-anchor: middle;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 1;
 }
 
 .txt-prv {
@@ -31,12 +64,17 @@
     font-weight: bold;
     color: #2B8FD4;
     width: min-content;
+    padding-top: 20%;
+    padding-right: 10%;
+    text-align: right;
 }
 
-.cust-det-ttl {
 
-    width: 100%;
+.cust-det-ttl {
+    padding-right: 0.75em;
+    width: calc(100% - 0.75em);
     font-size: 18px;
+
 }
 
 .cust-det-row {
@@ -48,7 +86,7 @@
 }
 
 .col-sml {
-    width: 50%;
+    width: 45%;
 }
 
 .cust-det-col {
@@ -57,10 +95,10 @@
 }
 
 
-/*---- collapse customer details ----
+/*---- collapse customer details ----*/
 input[type='checkbox'] {
     display: none;
-}*/
+}
 
 
 .mbl-collaps-button {
@@ -72,19 +110,15 @@ input[type='checkbox'] {
     color: #FFFFFF;
     width: 10%;
 }
+
+
 .lbl-toggle-txt {
     width: 50%;
     padding-right: 1em;
 }
 
 
-.line {
-    background-image: url('img/line.svg');
-    background-repeat: no-repeat;
-    padding: 1em;
 
-
-}
 
 
 
