@@ -1,3 +1,4 @@
+"use strict";
 /*document.getElementById('collapsible1').rrr = function() {
     console.log('Checked state -' + this.checked);
     if (this.checked) {
@@ -10,7 +11,7 @@
 function displayData() {
     // Get the checkbox
     var checkBox = document.getElementById("collapsible");
-
+    let x,y;
     // Get the output text
     var text = document.getElementById("cust-det-data");
     var arrow = document.getElementById("lbl-toggle-arr");

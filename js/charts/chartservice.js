@@ -1,3 +1,5 @@
+//"use strict";
+
 var myApp = angular.module('myBill');
 
 myApp.service('ChartService', function ($timeout) {
@@ -7,13 +9,14 @@ myApp.service('ChartService', function ($timeout) {
             base_color = '#E6E6E6',
             start = 10;
         baseLineD = 'M 10,10 h 100';
+      //  console.log('value = ' + value + 'isNaN(value)=' +"(value=='')" + (value==''));
         if (value < 0) { value = 0;}
         if (value > 100) { value = 100;}
-        if (isNaN(value)) { value = 0;}
+        if (isNaN(value) || (value=='')) { value = 0;}
 
         valueLineD = 'M 10,10 h '+ (value);
         circleValue_v = start +  parseFloat(value);
-     //     console.log('valueLineD value = ' + valueLineD);
+      //  console.log('valueLineD value = ' + valueLineD);
         var svg = document.createElementNS(xmlns, "svg");
         svg.setAttribute('viewBox', "0 0 120 18");
         var circleStart = document.createElementNS(xmlns, "circle");

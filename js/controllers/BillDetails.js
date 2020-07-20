@@ -1,3 +1,4 @@
+"use strict";
 var myApp = angular.module('myBill');
 
 
@@ -7,11 +8,15 @@ console.log('test json data passed: ' + testdata);
 var bill_total = document.getElementById('bill_total');
 var Totbill = JSON.parse(bill_total.innerHTML);
 
+
+
 myApp.controller('SubsDetails', function ($scope, ChartService) {
     this.service = ChartService;
     var onpageIn , onPageOut;
     let  partToOpen = {};
     partToOpen.status = false;
+    var partsOne;
+
 
 
     $scope.loaddatachart = function () {
@@ -25,7 +30,7 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         $scope.services = obj.services;
 
         //$scope.billitem = obj;
-        $billselected = Totbill.bill[index];
+        $scope.$billselected = Totbill.bill[index];
         $scope.usageAll = obj.service_usageALL;
         $scope.usage = obj.service_usage;
 
@@ -33,10 +38,13 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         ChartService.loadChart();
       //  console.log('before serv');
 
-
+/*
         console.log('useFilter ' + $scope.useFilter);
         console.log('this.onpageIn ' + onpageIn);
         console.log('this.onPageOut ' + onPageOut);
+*/
+        console.log('msg for bill parts ' + JSON.stringify(obj.bill_parts[0].submsg));
+        console.log('msg for bill parts 2' + obj.bill_parts[0].submsg);
     }
 
     $scope.showIn = function (value) {
@@ -99,7 +107,8 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         console.log('toggleDisplay index: ' + index);
         $scope.part = index;
        // $scope.show = ! $scope.show;
-        var divs =  document.getElementsByClassName("lineChart");
+       // var divs =  document.getElementsByClassName("lineChart");
+
         if ( $scope.showp2  === index ){
             $scope.showp2  = -index ;
             console.log('showp2: ' +  $scope.showp2);
@@ -108,10 +117,6 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
             $scope.showp2 = index ;
             console.log('showp2: ' +  $scope.showp2);
         }
-
-
-
-
         $scope.part2 = function(param){
             var to_return;
 
@@ -158,6 +163,33 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
             console.log('to_return: ' + to_return);
             return to_return;
         }
+
+        partsOne =  document.getElementsByClassName("part1");
+        let singlePart = partsOne[index];
+        let idiv = singlePart.getElementsByTagName('iplus');
+        let isCurrState = idiv[0].classList[0];
+        if (isCurrState === 'plus') {
+            idiv[0].classList.remove("plus");
+            idiv[0].classList.toggle("minus");
+            let partsTwo =  document.getElementsByClassName("part2");
+            let singlePartTwo = partsTwo[index];
+            console.log('singlePartTwo ' +  singlePartTwo.classList[1]);
+            let secdev = singlePartTwo.getElementsByTagName('secdev');
+            singlePartTwo.classList.remove("hide");
+        }
+        if (isCurrState === 'minus') {
+            idiv[0].classList.remove("minus");
+            idiv[0].classList.toggle("plus");
+            console.log('idiv ' +  idiv[0].classList[0]);
+            let partsTwo =  document.getElementsByClassName("part2");
+            let singlePartTwo = partsTwo[index];
+            console.log('singlePartTwo ' +  singlePartTwo.classList[1]);
+            let secdev = singlePartTwo.getElementsByTagName('secdev');
+            singlePartTwo.classList.toggle("hide");
+        }
+
+      //  secdev[0].classList.add("minus");
+
     };
 
     $scope.start = function() {
@@ -166,11 +198,52 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         $scope.useFilter = 'in';
         onpageIn = true;
         onPageOut = false;
-        ChartService.loadChart();
+      //  ChartService.loadChart();
         partToOpen.index = 0;
-        partToOpen_status = false;
+        //partToOpen_status = false;
         $scope.showp2 = -1;
+        $scope.getdetails(0);
+    };
+
+    $scope.showI = function(index) {
+        partsOne =  document.getElementsByClassName("payline");
+        console.log('msg showI index= ' +  index);
+
+       /// console.log('partsOne= ' +  partsOne[0].innerHTML);
+
+        let singlePart = partsOne[index];
+        let idiv = singlePart.getElementsByTagName('idiv');
+
+        console.log('idiv[0].className = ' +  idiv[0].innerHTML);
+       // $scope.parts[index];
+        let info = singlePart.getElementsByTagName('ispan');
+        console.log('info[0].innerHTML = ' +  info[0].innerHTML);
+       let popupMSG = $scope.parts[index].submsg;
+       console.log('popupMSG = ' +  popupMSG);
+        let iInfo =  singlePart.getElementsByTagName("info");
+        info[0].innerHTML = $scope.parts[index].submsg;
+        let isCurrState = idiv[0].classList[1];
+        console.log('isCurrState = ' +  isCurrState);
+       if (isCurrState === 'hide' ){
+           idiv[0].classList.remove("hide");
+
+           idiv[0].classList.toggle("show");
+
+           iInfo[0].classList.remove("active");
+           iInfo[0].classList.toggle("disactive");
+       }
+        if (isCurrState === 'show' ||  isCurrState === undefined){
+            idiv[0].classList.remove("show");
+
+            idiv[0].classList.toggle("hide");
+
+            iInfo[0].classList.remove("disactive");
+            iInfo[0].classList.toggle("active");
+        }
     }
+
+
+
 });
 
 myApp.controller('CustomerDetails', function ($scope) {
