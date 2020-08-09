@@ -157,7 +157,7 @@
 
     <section class="main-content " >
         <section class="usage visibledevice" id="usage">
-            <div class="use-txt hdr-c"> פירוט השימוש </div>
+            <div class="use-txt hdr-c visibledesktop"> פירוט השימוש </div>
             <div class="usage_btns">
                 <div id="usein" class="use-btn btn-in slt-btn"  ng-on-click="showIn('in')">                    בארץ
                 </div>
@@ -212,7 +212,7 @@
 
         </section>
         <section class="payment visibledevice" id="payment">
-            <div class=" wrp-cnt">
+            <div class=" wrp-cnt visibledesktop">
                 <label class="hdr use-txt hdr-r"> פירוט חיובים</label>  {{ billselected.msgbox.length}}
                 <div class="msgbox-wrp">
 
@@ -260,7 +260,7 @@
 
                                 <a class="part1" data-part="{{ $index }}">
                                     <div class="item_data">
-                                        <div  class="item" ng-click="toggleDisplay($index)">
+                                        <div  class="itemPl" ng-click="toggleDisplay($index)">
                                             <label class="item-sml"><iplus class="plus" ></iplus></label>
                                         </div>
                                         <div class="paym-row">
@@ -317,26 +317,26 @@
     <section class="main-content ">
 
         <section class="add_act visibledevice" id="add_act">
-            <div class="use-txt hdr-c"> פעולות נוספות </div>
+            <div class="use-txt hdr-c visibledesktop"> פעולות נוספות </div>
             <section class="act-content">
                 <ul>
                     <li class="acts">
                         <a href=#" >
-                            <label class="act">
+                            <div class="act " >
                                 <div class="icon img-wrp icon_det"></div>
-                                <label > עדכון פרטים אישיים</label></label>
+                                <label class="icon"> עדכון פרטים אישיים</label></div>
                         </a>
                     </li>
                     <li  class="acts"><a href=#">
-                        <label class="act">
-                            <label class="icon img-wrp icon_paym"></label>
-                            <label >עדכון אמצעי תשלום</label></label>
+                        <div class="act ">
+                            <div class="icon img-wrp icon_paym"></div>
+                            <label class="icon">עדכון אמצעי תשלום</label></div>
 
                     </a></li>
                     <li  class="acts"><a href=#">
-                        <label class="act">
-                            <label class="icon img-wrp icon_masl"></label>
-                            <label >עדכון פרטי המסלול</label></label>
+                        <div class="act ">
+                            <div class="icon img-wrp icon_masl"></div>
+                            <label class="icon">עדכון פרטי המסלול</label></div>
                     </a></li>
                 </ul>
             </section>
@@ -379,8 +379,8 @@
                         <br/>
                         כולל מע''מ
                     </div>
-                    <div class="total-col">
-                        <span class="payment_total_vT  spr ">{{ billselected.total }}
+                    <div class="payment_total_v">
+                        <span class="  spr ">{{ billselected.total }}
                         </span>
                         <span class="small-v">
                             <label class="lineAft" ></label>

@@ -15,9 +15,10 @@
 .payment_total_row {
     display: flex;
     flex-flow: row;
-    align-content: flex-end;
-    justify-content: center;
-    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-end;
+
 }
 
 .payment_total_desc {

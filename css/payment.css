@@ -2,8 +2,9 @@
     background-color: #ffffff;
 /*    display: flex;*/
     flex-flow: column;
+    align-items: center;
     justify-content: center;
-    align-self: flex-start;
+    align-self: baseline;
 }
 
 .hdr-r {
@@ -17,7 +18,8 @@
     flex-flow: column;
     justify-content: center;
     align-content: flex-start;
-    width: 100%;
+    width: 90%;
+    padding: 1em 0 1em 0;
 }
 
 .bill_data {
@@ -55,11 +57,14 @@
     cursor: pointer;
 }
 */
-.item {
 
+.itemPl {
+    display: flex;
     width: 10%;
-
-
+}
+.item {
+    display: flex;
+    width: 25%;
 }
 
 .item-sml{
@@ -74,7 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 30%;
     height: 100%;
     border-right: #c5c5c5 dashed 0.2px;
 }
@@ -137,7 +142,7 @@
     justify-content: center;
     padding-left: 1%;
     padding-right: 1%;
-    width: 60%;
+    width: 75%;
     line-height: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -207,7 +212,7 @@
 .item_l {
     width: 50%;
     padding-right: 0.5em;
-
+padding-left: 0.25em;
 }
 
 .item_s {
@@ -253,7 +258,9 @@
 
 .img-wrp {
     display: flex;
+    align-items: center;
     justify-content: center;
+    align-self: center;
     width: 100%;
 }
 .icon1 {
@@ -424,7 +431,6 @@ direction: ltr;
 }
 
 .wrp-cnt {
-    display: flex;
     flex-flow: row;
     width: 95%;
     align-self: center;
@@ -437,6 +443,7 @@ direction: ltr;
     justify-content: flex-end;
     width: 50%;
     padding-top: 1em;
+    padding-left: 8%;
 }
 
 .hdr {

@@ -25,32 +25,37 @@
 
 .act {
     display: flex;
-justify-content: center;
+    justify-content: center;
+    align-items: center;
+
     color: #2A85D4;
     font-size: 20px;
-    padding-top: 0.3em;
     padding-bottom: 0.3em;
 }
 
 
 .icon {
-    margin-left: 1em;
-    width: 25px;
-    height: 25px;
+margin: 0.35em;
 }
 .icon_det {
     background-image: url("img/details.png");
     background-repeat: no-repeat;
+    width: 20px;
+    height: 21px;
 }
 
 .icon_paym {
     background-image: url("img/payment.png");
     background-repeat: no-repeat;
+    width: 24px;
+    height: 16px;
 }
 
 .icon_masl {
     background-image: url("img/locus.png");
     background-repeat: no-repeat;
+    width: 24px;
+    height: 20px;
 }
 
 

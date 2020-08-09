@@ -11,7 +11,7 @@
 
 @media (max-width:640px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
     .visibledevice {display:flex;}
-    .visibledesktop {display:flex;}
+    .visibledesktop {display:none;}
 
     html {
         font-size: 16px;
@@ -47,7 +47,7 @@
     .cust-det-data {
         display: none;
         flex-flow: column wrap;
-
+        width: 95%;
         margin: 1em 0 1em 0;
         background-color: aliceblue;
     }
@@ -151,7 +151,14 @@
     .p-rght {
         padding-left: 50%;
     }
+    .wrp-cnt{
+        display: none;
+    }
 
+
+    .col-sml {
+        width: 40%;
+    }
 }
 
 @media only screen and (min-device-width: 641px) and (max-device-width: 900px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
@@ -288,12 +295,20 @@
     }
 
     .payment_total_row {
-        width: 75%;
-        padding:  0.25em 0.25em 0.25em 1.5em;
+        width: 65%;
+        padding-left: 9%;
     }
 
     .lineAft {
         transform: scale(0.65);
+    }
+
+    .wrp-cnt{
+        display: flex;
+    }
+
+    .col-sml {
+        width: 45%;
     }
 }
 
@@ -337,7 +352,7 @@
     .cust-det-data {
         display: flex;
         flex-flow: row wrap;
-        width: 75%;
+        width: 85%;
 
     }
 
@@ -430,9 +445,17 @@
     }
 
     .payment_total_row {
-        width: 75%;
-        padding:  0.25em 0.25em 0.25em 1.5em;
+        width: 65%;
+        padding-left: 9%;
 
+    }
+
+    .wrp-cnt{
+        display: flex;
+    }
+
+    .col-sml {
+        width: 45%;
     }
 }
 
