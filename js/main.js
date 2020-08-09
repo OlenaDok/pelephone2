@@ -1,4 +1,4 @@
-"use strict";
+
 /*document.getElementById('collapsible1').rrr = function() {
     console.log('Checked state -' + this.checked);
     if (this.checked) {
@@ -31,7 +31,41 @@ function displayData() {
     }
 }
 
+function getData(element) {
+    let activenav = document.getElementById(element);
 
+    let navs = document.getElementsByTagName('nav');
+
+    for(let i=0; i < navs.length; i++ ){
+        if(element === navs.item(i).id){
+            activenav.classList.add('active');
+        }else {
+            navs.item(i).classList.remove('active');
+        }
+    }
+    let usage = document.getElementById('usage');
+    let payment = document.getElementById('payment');
+    let add_act = document.getElementById('add_act');
+
+    switch (element) {
+        case 'pay':
+            payment.style.display = 'flex';
+            usage.style.display = 'none';
+            add_act.style.display = 'none';
+            break;
+        case 'use':
+            payment.style.display = 'none';
+            usage.style.display = 'block';
+            add_act.style.display = 'none';
+            break;
+        case 'act':
+            payment.style.display = 'none';
+            usage.style.display = 'none';
+            add_act.style.display = 'flex';
+            break;
+    }
+
+}
 /*
 function loadChart() {
     drawLineChart();

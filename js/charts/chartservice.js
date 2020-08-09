@@ -3,7 +3,7 @@
 var myApp = angular.module('myBill');
 
 myApp.service('ChartService', function ($timeout) {
-    this.setValue = function(value, color) {
+    this.setValue = function(value) {
         var xmlns = "http://www.w3.org/2000/svg";
         var str_wdt = 4,
             base_color = '#E6E6E6',
@@ -13,6 +13,13 @@ myApp.service('ChartService', function ($timeout) {
         if (value < 0) { value = 0;}
         if (value > 100) { value = 100;}
         if (isNaN(value) || (value=='')) { value = 0;}
+
+        if (value >= 75) {
+            color = '#E1248E';
+        }
+        else {
+            color = '#0B69BA';
+        }
 
         valueLineD = 'M 10,10 h '+ (value);
         circleValue_v = start +  parseFloat(value);
@@ -74,14 +81,22 @@ myApp.service('ChartService', function ($timeout) {
      //   console.log('angular divs in drawLineChart ' + divsSelect.length);
         for (i = 0; i < divs.length; i++ ){
             var item = divs.item(i),
-                value = item.getAttribute('data-value'),
-                text = item.getAttribute('data-text');
+                value = item.getAttribute('data-value');
+              /*  text = item.getAttribute('data-text');*/
          //    console.log('before set value = ' + value);
-            item.appendChild(this.setValue(value, text));
+            item.appendChild(this.setValue(value));
         }
     }
 
-    this.drawLineChart1 = function (value, color) {
+    this.drawLineChart1 = function (value) {
+
+        if (value >= 75) {
+            color = '#E1248E';
+        }
+        else {
+            color = '#0B69BA';
+        }
+
      //   console.log('drawLineChart with values ');
         var divs = document.getElementsByClassName("lineChart");
         var divsSelect = document.querySelectorAll('lineChart');
@@ -128,11 +143,12 @@ myApp.service('ChartService', function ($timeout) {
         return svg;
     }
 
-    this.progressDonut = function(svg, color, progress) {
+    this.progressDonut = function(svg, progress) {
+
         var id = 'svg-circle-prg';
         var xmlns = "http://www.w3.org/2000/svg";
         var size = 100,
-            stroke = color,
+            stroke,
             strokeWidth = '2px' ,
             center = 0,
             radius = (size - 2)/2,
@@ -141,6 +157,15 @@ myApp.service('ChartService', function ($timeout) {
         if (progress < 0) { progress = 0;}
         if (progress > 100) { progress = 100;}
         if (isNaN(progress)) { progress = 55;}
+
+        if (progress >= 75) {
+            color = '#E1248E';
+        }
+        else {
+            color = '#0B69BA';
+        }
+
+        stroke = color;
         var pct = ((100-progress)/100)*circumference * (1);
 
         var progressCircle = document.createElementNS(xmlns, "circle");
@@ -171,10 +196,10 @@ myApp.service('ChartService', function ($timeout) {
         return svg;
     }
 
-    this.createDonut = function (color, progress) {
+    this.createDonut = function (progress) {
         var svg = this.createSVG();
         this.baseDonut(svg);
-        this.progressDonut(svg, color, progress);
+        this.progressDonut(svg, progress);
      //   console.log('createDonut progress -' + progress);
         return svg;
     }
@@ -187,8 +212,8 @@ myApp.service('ChartService', function ($timeout) {
 
             var item = divs.item(i);
             var value = item.getAttribute('data-value');
-            var text = item.getAttribute('data-text');
-            var svg = this.createDonut(text, value);
+         /*   var text = item.getAttribute('data-text');*/
+            var svg = this.createDonut(value);
 
      //       console.log('svg in donut ' + svg.getAttribute('path'));
             item.appendChild(svg);

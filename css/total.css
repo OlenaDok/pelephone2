@@ -5,28 +5,28 @@
     justify-content: center;
 }
 .payment_total {
-    width: 95%;
+    width: 100%;
     display: flex;
     flex-flow: column ;
-    align-items: flex-end;
+    align-items: center;
     justify-content: left;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding: 0.5em 0 0.5em 0;
 }
 .payment_total_row {
     display: flex;
     flex-flow: row;
     align-content: flex-end;
     justify-content: center;
-    }
+    width: 100%;
+}
 
 .payment_total_desc {
     align-content: center;
     justify-content: center;
-    width: 60%;
+    width: 50%;
     word-wrap: normal;
     font-weight: normal;
-
+    line-height: 1.2;
 }
 .payment_total_v {
     text-align: left;
@@ -35,7 +35,32 @@
     font-weight: bold;
     color: #FFFFFF;
    }
+
+.total-col {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    width: 35%;
+}
+.payment_total_descT {
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+    word-wrap: normal;
+    font-weight: normal;
+
+}
+
+.payment_total_vT {
+   width: 90%;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+}
 .spr {
+
     font-size: 30px;
 }
 
@@ -53,4 +78,25 @@
     background-color: #2a6496;
     color: #fefefe;
 }
+
+.small-v{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:left;
+}
+
+.lineAft123{
+    width: 151px;
+    height: 13px;
+}
+
+.lineAft {
+    display: inline-flex;
+    background-image: url("img/line_pic.png");
+    background-repeat: no-repeat;
+    width: 151px;
+    height: 13px;
+    transform: scale(0.85);
+}
+
 

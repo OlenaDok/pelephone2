@@ -17,7 +17,8 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
     partToOpen.status = false;
     var partsOne;
 
-
+    /* --to do --*/
+    let msgBoxVisited;
 
     $scope.loaddatachart = function () {
         ChartService.loadChart();
@@ -28,15 +29,16 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         var obj = Totbill.bill[index];
         $scope.parts = obj.bill_parts;
         $scope.services = obj.services;
-
+        $scope.msgbox = obj.msgbox;
         //$scope.billitem = obj;
         $scope.$billselected = Totbill.bill[index];
         $scope.usageAll = obj.service_usageALL;
         $scope.usage = obj.service_usage;
-
+        msgBoxVisited = false;
 
         ChartService.loadChart();
       //  console.log('before serv');
+        countBox();
 
 /*
         console.log('useFilter ' + $scope.useFilter);
@@ -242,7 +244,74 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         }
     }
 
+    $scope.showMSGbox = function () {
+        //msgbox-wrpD
+        let divobject =  document.getElementsByClassName("msgbox-wrpD")[0];
+        console.log('divobject = ' +  divobject.innerHTML);
 
+        let divmsgbox = divobject.getElementsByTagName('msgdiv')[0];
+        console.log('divmsgbox = ' +  divmsgbox.innerHTML);
+
+        let msgbox1 = divmsgbox.getElementsByTagName('msgbox')[0];
+
+        let msgbox = $scope.msgbox;
+
+        console.log('msgbox = ' +  $scope.msgbox[0].msg);
+
+        let boxStart = '<div class="msgBox-cont">' +
+            '<a class="box-close" onclick="closeBox()">&times;</a>' +
+            '<div class="box-ttl">תיבת ההודעות שלך</div>'+
+            '<div class="box-cnt">' ;
+        let boxEnd = '</div></div>';
+
+        let dateStart = '<div class="msgBox-date col-3-1">';
+        let dateEnd = '</div>';
+        let msgStart = '<div class="msgBox-msg col-3-2">';
+        let msgEnd = '</div>';
+        let rowStart = '<div class="msgBox-cont-row">';
+        let rowEnd = '</div>';
+
+        let data;
+
+        data = boxStart;
+
+        for( let i=0; i < msgbox.length; i++) {
+            data+= rowStart;
+            data+= dateStart;
+            data+= msgbox[i].date;
+            data+= dateEnd;
+
+            data+= msgStart;
+            data+= msgbox[i].msg;
+            data+= msgEnd;
+            data+= rowEnd;
+        }
+       // data.append(boxEnd);
+
+
+        data+= boxEnd;
+        msgbox1.innerHTML = data;
+
+        divobject.style.visibility = 'visible';
+        divobject.style.opacity = '1';
+
+        const body = document.body;
+        body.style.height = '100vh';
+        body.style.overflowY = 'hidden';
+
+    }
+
+    /* --to do --*/
+    function countBox() {
+        let divobjectCount =  document.getElementsByClassName("count")[0];
+        if(!msgBoxVisited){
+            msgBoxVisited = true;
+            divobjectCount.classList.toggle("hide");
+        }
+        else {
+            divobjectCount.classList.remove("hide");
+        }
+    }
 
 });
 
@@ -279,4 +348,16 @@ function checkBillData(elementID) {
     return true;
 }
 
+function closeBox() {
+    let divobject =  document.getElementsByClassName("msgbox-wrpD")[0];
+    divobject.style.visibility = 'hidden';
+    divobject.style.opacity = '0';
 
+    const body = document.body;
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    body.style.height = '';
+    body.style.overflowY = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+}

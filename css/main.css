@@ -9,8 +9,8 @@
     src: url('fonts/fbspaceren-bold-webfont.ttf');
 }
 
-@media (max-width:600px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
-    .visibledevice {display:none;}
+@media (max-width:640px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
+    .visibledevice {display:flex;}
     .visibledesktop {display:flex;}
 
     html {
@@ -112,14 +112,18 @@
     }
     .usage {
         width: 100%;
+        background-color:  rgb(248, 248, 248);
+        display: none;
     }
 
     .payment {
         width: 100%;
+        display: none;
     }
 
     .add_act {
         width: 100%;
+        display: none;
     }
 
     .total_bill {
@@ -141,6 +145,7 @@
     }
     .payment_total_row {
         width: 100%;
+
     }
 
     .p-rght {
@@ -149,7 +154,7 @@
 
 }
 
-@media only screen and (min-device-width: 601px) and (max-device-width: 900px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
+@media only screen and (min-device-width: 641px) and (max-device-width: 900px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. /*/
     .visibledevice {display:none;}
     .visibledesktop {display:flex;}
 
@@ -161,6 +166,7 @@
     .wraper {
         max-width: 1170px;
         min-width: 601px;
+        width: 100%;
         margin: auto;
     }
 
@@ -237,13 +243,18 @@
 
     .usage {
         width: 35%;
+        background-color: #DFF0FF;
+        display: block;
+
     }
     .payment {
         width: 65%;
+        display: flex;
     }
 
     .add_act {
         width: 35%;
+        display: flex;
     }
 
     .total_bill {
@@ -279,6 +290,10 @@
     .payment_total_row {
         width: 75%;
         padding:  0.25em 0.25em 0.25em 1.5em;
+    }
+
+    .lineAft {
+        transform: scale(0.65);
     }
 }
 
@@ -370,13 +385,17 @@
 
     .usage {
         width: 35%;
+        display: block;
+        background-color: #DFF0FF;
     }
     .payment {
         width: 65%;
+        display: flex;
     }
 
     .add_act {
         width: 35%;
+        display: flex;
     }
 
     .total_bill {
@@ -413,6 +432,7 @@
     .payment_total_row {
         width: 75%;
         padding:  0.25em 0.25em 0.25em 1.5em;
+
     }
 }
 
@@ -420,6 +440,10 @@
 body {
     direction: rtl;
     text-align: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 /*
 .bill-txt-prv {
@@ -444,7 +468,7 @@ ul li a {
 }
 
 ul li a :hover {
-    font-weight: bold;
+   /* font-weight: bold;*/
     text-decoration: none;
 }
 
@@ -471,3 +495,29 @@ only screen and (min-device-pixel-ratio: 1.5) {
     }
 }
 
+.main-content-nav {
+  /*  display: flex; */
+    flex-flow: row;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(21, 57, 88);
+    line-height: 0.933;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:  rgb(248, 248, 248);
+    padding: 0.5em 0 0.5em 0;
+}
+
+.cell-nav{
+    width: 23%;
+}
+
+.cell-nav.active:after {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #E43B99;
+    top: 0;
+    content: '';
+}

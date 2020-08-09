@@ -28,7 +28,7 @@
 }
 
 .line {
-    background-image: url('img/line.svg');
+    background-image: url('img/line_pic.png');
     background-repeat: no-repeat;
     /*width: 155px; */
     height: 11px;
@@ -84,20 +84,64 @@ bill-data-row {
 }
 
 .bll-prd-select {
-    width: 75%;
     color: rgb(76, 76, 76);
     font-size: 20px;
     margin-top: 0.5em;
-    border-width: 1px;
-    border-color: rgb(196, 196, 196);
-    border-style: solid;
-    border-radius: 5px;
+    line-height: 1.3;
+    padding: .3em ;
+    width: 100%;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+  /*  margin: 0;*/
+    border: 1px solid rgb(196, 196, 196);
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .2em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    max-height: 5em;
 
+}
+.bll-prd-select:hover {
+    border-color: #888;
+}
+/*
+.bll-prd-select:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    color: #222;
+    outline: none;
+}
+*/
+.bll-prd-select option {
+    font-weight:normal;
+}
+
+.bll-prd-select:after{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 32px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid rgba(0,0,0,.5);
+    transition: all .2s cubic-bezier(.25,.46,.45,.94);
+ }
+
+select{
+
+    text-rendering: geometricPrecision;
 }
 .ttl-col {
     display: flex;
     flex-flow: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: flex-end;
+
     width: 50%;
 }
 
@@ -114,7 +158,7 @@ bill-data-row {
     display: flex;
     flex-flow: column;
     justify-content: right;
-
+align-self: center;
     padding: 2% 2% 2% 2%;
 }
 /* bll-prd-ttl t-cntr */
