@@ -18,7 +18,14 @@
     align-items: center;
     justify-content: space-around;
     align-self: flex-end;
+}
 
+.payment_total_rowT {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-end;
 }
 
 .payment_total_desc {
@@ -35,7 +42,17 @@
     font-size: 25px;
     font-weight: bold;
     color: #FFFFFF;
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+
    }
+.payment_total_vT {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .total-col {
     display: flex;

@@ -216,12 +216,12 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         let singlePart = partsOne[index];
         let idiv = singlePart.getElementsByTagName('idiv');
 
-        console.log('idiv[0].className = ' +  idiv[0].innerHTML);
+      /**  console.log('idiv[0].className = ' +  idiv[0].innerHTML);*/
        // $scope.parts[index];
         let info = singlePart.getElementsByTagName('ispan');
-        console.log('info[0].innerHTML = ' +  info[0].innerHTML);
+       /* console.log('info[0].innerHTML = ' +  info[0].innerHTML);*/
        let popupMSG = $scope.parts[index].submsg;
-       console.log('popupMSG = ' +  popupMSG);
+       console.log('popupMSG = ' +  $scope.parts[index].submsg);
         let iInfo =  singlePart.getElementsByTagName("info");
         info[0].innerHTML = $scope.parts[index].submsg;
         let isCurrState = idiv[0].classList[1];

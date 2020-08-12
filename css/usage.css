@@ -17,6 +17,8 @@
     font-size: 30px;
     font-weight: bold;
     color: #153958;
+    flex-flow: row;
+    justify-content: center;
 }
 
 .usage_btns {

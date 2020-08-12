@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="css/total.css">
 
     <script src="js/vendor/angular.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/polyfills.ts"></script>
+    <![endif]-->
 </head>
 <body>
 <section id="msgbox" class="msgbox-wrpD">
@@ -95,7 +98,7 @@
                         </div>
                         <div class="cust-det-row">
                             <div class="cust-det-cell col-sml">
-                                יחוייב באמצעות
+                                יחויב באמצעות
                             </div>
                             <div class="cust-det-cell col-lrg bld">
                                 כרטיס אשראי מסטר קרד
@@ -171,17 +174,17 @@
                         <div class="usage_row_ttl">
                             <div class="chart-ttl">מנוי {{ useditem.sub }}  </div>
                         </div>
-                        <div class="usage_row">
+                        <div ng-if="useditem.used[0].procentGB!=''" class="usage_row">
                             <label class="usage_data">{{ useditem.used[0].GB }}</label>
                             <div class="lineChart" id="first1" data-value="{{ useditem.used[0].procentGB }}" data-text="#0B69BA"></div>
                             <label class="usage_data_val">{{ useditem.used[0].procentGB }} %</label>
                         </div>
-                        <div class="usage_row">
+                        <div ng-if="useditem.used[0].procentMin!=''" class="usage_row">
                             <label class="usage_data">{{ useditem.used[0].Min }}</label>
                             <div class="lineChart" id="first2" data-value="{{ useditem.used[0].procentMin }}" data-text="#E1248E"></div>
                             <label class="usage_data_val">{{ useditem.used[0].procentMin }} %</label>
                         </div>
-                        <div class="usage_row">
+                        <div ng-if="useditem.used[0].procentSms!=''"  class="usage_row">
                             <label class="usage_data">{{ useditem.used[0].SMS }}</label>
                             <div class="lineChart" id="first3" data-value="{{ useditem.used[0].procentSms }}" data-text="#0B69BA"></div>
                             <label class="usage_data_val">{{ useditem.used[0].procentSms }} %</label>
@@ -190,20 +193,23 @@
                 </div>
                 <div ng-if="billselected.index!=0" >
                     <div  ng-repeat="useditem in billselected.service_usage | filter:useFilter">
-                        <div class="chart-ttl">כמה צרכת מהחבילה שלך?</div>
-                        <div class="usage_row">
-
-                            <div class="donut" data-value="{{ useditem.used[0].procentGB }}" data-text="#0B69BA" data-pct="{{useditem.used[0].GB}}"></div>
+                        <div ng-if="useditem.used[0].procentGB!=''">
+                            <div class="chart-ttl">כמה צרכת מהחבילה שלך?</div>
+                            <div class="usage_row">
+                                <div class="donut" data-value="{{ useditem.used[0].procentGB }}" data-text="#0B69BA" data-pct="{{useditem.used[0].GB}}"></div>
+                            </div>
                         </div>
+                        <div ng-if="useditem.used[0].procentMin!=''">
                         <div class="chart-ttl">כמה צרכת דקות שיחה?</div>
                         <div class="usage_row">
-
                             <div class="donut" data-value="{{ useditem.used[0].procentMin }}" data-text="#E1248E" data-pct="{{useditem.used[0].Min}}"></div>
                         </div >
+                        </div>
+                        <div ng-if="useditem.used[0].procentSms!=''">
                         <div class="chart-ttl">כמה צרכת SMS ?</div>
                         <div class="usage_row">
-
                             <div class="donut" data-value="{{ useditem.used[0].procentSms }}" data-text="#0B69BA" data-pct="{{useditem.used[0].SMS}}"></div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -230,7 +236,7 @@
                             <div ng-if="item.services.length == null">
                                 <a class="part1" data-part="{{ $index }}">
                                     <div class="item_data">
-                                        <div  class="item">
+                                        <div  class="itemPl">
                                             <label class="item-sml"><iplus class="minus" ></iplus></label>
                                         </div>
                                         <div class="paym-row">
@@ -240,17 +246,19 @@
                                                 </div>
                                             </div>
                                             <div class="item_big">
-
                                                 <label  class="title"> {{ item.bill_part_desc }}</label>
                                                 <label  class="subtitle">{{ item.bill_part_msg }}</label>
                                             </div>
-                                            <label  class="item_total bld">{{ item.bill_part_total }}  &#8362; </label>
-                                        </div>
 
-                                        <div ng-if="item.submsg!=''" class="item-vsml " ><info class="i-info active" ng-click="showI($index)">i</info>
-                                            <idiv class="i-popup hide ">
-                                                <ispan class="i-popup-content"></ispan>
-                                            </idiv>
+                                        </div>
+                                        <div class="item_m">
+                                            <label  class="item_total bld">{{ item.bill_part_total }}  &#8362; </label>
+                                            <div ng-if="item.submsg!='-1'" class="item-vsml " >
+                                                <info class="i-info active" ng-click="showI($index)">i</info>
+                                                <idiv class="i-popup hide ">
+                                                    <ispan class="i-popup-content"></ispan>
+                                                </idiv>
+                                            </div>
                                         </div>
                                     </div>
                                 </a>
@@ -276,7 +284,7 @@
                                         </div>
                                         <div class="item_m">
                                             <label  class="item_total bld">{{ item.bill_part_total }}  &#8362; </label>
-                                            <div ng-if="item.submsg!=''" class="item-vsml " >
+                                            <div ng-if="item.submsg!='-1'" class="item-vsml " >
                                                 <info class="i-info active" ng-click="showI($index)">i</info>
                                                 <idiv class="i-popup hide ">
                                                     <ispan class="i-popup-content"></ispan>
@@ -290,7 +298,7 @@
                                     <div class="part2_data ">
                                         <div class="data header">
                                             <div class="item_l title ">תיאור</div>
-                                            <div class="item_s title ">דקות/יחידות</div>
+                                            <div class="item_s title ">דקות/ יחידות</div>
                                             <div class="item_s title ">סה"כ לתשלום</div>
                                         </div>
                                         <div class="data data_row"  ng-repeat="servitem in item.services">
@@ -372,7 +380,7 @@
 
             <div class="payment_total dark_blue">
 
-                <div class="payment_total_row ">
+                <div class="payment_total_rowT ">
 
                     <div class=" payment_total_desc ">
                         סה''כ חשבונית נוכחית
@@ -380,16 +388,13 @@
                         כולל מע''מ
                     </div>
                     <div class="payment_total_v">
-                        <span class="  spr ">{{ billselected.total }}
-                        </span>
-                        <span class="small-v">
+                        <div class="payment_total_vT">
+                            <span class="  spr ">{{ billselected.total }}</span>
+                            <span class="small-v">
                             <label class="lineAft" ></label>
                         </span>
-
-
+                        </div>
                     </div>
-
-
                 </div>
 
             </div>
@@ -404,291 +409,241 @@
     {
     "index": "0",
     "subsciber": "כל המנויים",
-    "total": "639.46 ₪",
+    "total": "&#8362; 221.73",
     "bill_parts": [
     {
-    "paycode": "pcn",
-    "bill_part_total": "139.46",
+    "bill_part_total": "221.72",
     "bill_part_desc": "חיובים קבועים",
     "bill_part_msg": "חיוב בגין שרותים בתשלום חודשי קבוע",
-    "services": [
-    {
-    "name": "תשלום חודשי קבוע (דמי מנוי)",
-    "rate": "19.89",
-    "total": "19.89"
+    "paycode": "pcn",
+    "submsg": "-1"
     },
     {
-    "name": "חבילת גלישה בנפח 10GB",
-    "rate": "0.00",
-    "total": "0.00"
-    },
-    {
-    "name": "מהירות מקסימאלית ברשת פלאפון",
-    "rate": "0.00",
-    "total": "0.00"
-    }
-    ],
-    "submsg": ""
-    },
-    {
-    "paycode": "pch",
-    "bill_part_total": "425.30",
+    "bill_part_total": "0.00",
     "bill_part_desc": "חיובים משתנים",
     "bill_part_msg": "חיוב על פי שימוש",
-    "services": [
-    {
-    "name": "חסימת נפח גלישה גמיש",
-    "rate": "0.00",
-    "total": "0.00"
-    },
-    {
-    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
-    "rate": "0.00",
-    "total": "0.00"
-    },
-    {
-    "name": "תשלום חודשי קבוע (דמי מנוי)",
-    "rate": "29.89",
-    "total": "29.89"
-    },
-    {
-    "name": "חבילת גלישה בנפח 100GB",
-    "rate": "0.00",
-    "total": "0.00"
-    }
-    ],
-    "submsg": "smth"
+    "paycode": "pch",
+    "submsg": "-1"
     }
     ],
     "service_usageALL": [
     {
-    "sub": "050-6950587",
+    "sub": "0503492002",
     "in": "in",
     "used": [
     {
     "GB": "ניצול חבילה",
-    "procentGB": "12",
+    "procentGB": "4",
     "Min": "דקות שיחה",
-    "procentMin": "95",
+    "procentMin": "31",
     "SMS": "SMS",
-    "procentSms": "65"
+    "procentSms": ""
     }
     ]
     },
     {
-    "sub": "060-6950589",
-    "in": "in",
-    "used": [
-    {
-    "GB": "ניצול חבילה",
-    "procentGB": "55",
-    "Min": "דקות שיחה",
-    "procentMin": "63",
-    "SMS": "SMS",
-    "procentSms": "12"
-    }
-    ]
-    },
-    {
-    "sub": "070-6560555",
+    "sub": "0504482002",
     "in": "in",
     "used": [
     {
     "GB": "ניצול חבילה",
     "procentGB": "10",
     "Min": "דקות שיחה",
-    "procentMin": "88",
+    "procentMin": "3",
     "SMS": "SMS",
-    "procentSms": "22"
+    "procentSms": "0"
     }
     ]
     },
     {
-    "sub": "080-6950589",
+    "sub": "0504492002",
     "in": "in",
     "used": [
     {
     "GB": "ניצול חבילה",
-    "procentGB": "55",
+    "procentGB": "6",
     "Min": "דקות שיחה",
-    "procentMin": "63",
+    "procentMin": "7",
     "SMS": "SMS",
-    "procentSms": "12"
+    "procentSms": ""
     }
     ]
     },
     {
-    "sub": "090-6560555",
+    "sub": "0509500767",
     "in": "in",
     "used": [
     {
     "GB": "ניצול חבילה",
-    "procentGB": "10",
+    "procentGB": "5",
     "Min": "דקות שיחה",
-    "procentMin": "88",
+    "procentMin": "0",
     "SMS": "SMS",
-    "procentSms": "22"
+    "procentSms": ""
     }
     ]
     }
     ],
     "msgbox": [
     {
-    "date": "10/10/19",
-    "msg": "stmh 1"
-    },
-    {
-    "date": "11/10/19",
-    "msg": "stmh 2"
+    "msg": "לידיעתך, בתאריך 16/05/2020 סך התשלום שהתקבל עבור חיוב קודם הוא 302.61 ₪ באמצעי התשלום המעודכן אצלנו. רק  במידה והתשלום כובד זהו אישור סופי.",
+    "date": "NO_DATE"
     }
     ]
     },
     {
     "index": "1",
-    "subsciber": "050-6950587",
-    "total": "17.00 ₪",
+    "subsciber": "00000000000",
+    "total": "&#8362; 7.90",
     "bill_parts": [
     {
-    "paycode": "pcn",
-    "bill_part_total": "19.89",
+    "bill_part_total": "7.90",
     "bill_part_desc": "חיובים קבועים",
     "bill_part_msg": "חיוב בגין שרותים בתשלום חודשי קבוע",
+    "paycode": "pcn",
     "services": [
     {
-    "name": "תשלום חודשי קבוע (דמי מנוי)",
-    "rate": "19.89",
-    "total": "19.89"
-    },
-    {
-    "name": "חסימת נפח גלישה גמיש",
+    "name": "דמי הוראת קבע",
     "rate": "0.00",
-    "total": "0.00"
-    },
-    {
-    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
-    "rate": "0.00",
-    "total": "0.00"
+    "total": "7.90"
     }
     ],
-    "submsg": "smth"
-    },
-    {
-    "paycode": "pch",
-    "bill_part_total": "425.30",
-    "bill_part_desc": "חיובים משתנים",
-    "bill_part_msg": "חיוב על פי שימוש",
-    "services": [
-    {
-    "name": "מהירות מקסימאלית ברשת פלאפון",
-    "rate": "0.00",
-    "total": "0.00"
-    },
-    {
-    "name": "נפח גלישת אינטרנט כלול ב -  MB",
-    "rate": "20.00",
-    "total": "20.00"
-    },
-    {
-    "name": "דקות שיחה חינם 1800",
-    "rate": "29.89",
-    "total": "29.89"
-    },
-    {
-    "name": "חבילת גלישה בנפח 100GB",
-    "rate": "0.00",
-    "total": "0.00"
-    }
-    ],
-    "submsg": "smth"
-    }
-    ],
-    "service_usage": [
-    {
-    "in": "in",
-    "used": [
-    {
-    "GB": "23.63GB מתוך  25.5GB",
-    "procentGB": "85",
-    "Min": "137 מתוך 252",
-    "procentMin": "55",
-    "SMS": "110  מתוך 200",
-    "procentSms": "60"
+    "submsg": "-1"
     }
     ]
-    },
-    {
-    "in": "out",
-    "used": [
-    {
-    "GB": "20.63GB מתוך  25.5GB",
-    "procentGB": "20",
-    "Min": "10 מתוך 252",
-    "procentMin": "10",
-    "SMS": "30  מתוך 200",
-    "procentSms": "30"
-    }
-    ]
-    }
-    ],
-    "msgbox": "-1"
     },
     {
     "index": "2",
-    "subsciber": "052-6175942",
-    "total": "25.00 ₪",
+    "subsciber": "0503492002",
+    "total": "&#8362; 54.88",
     "bill_parts": [
     {
-    "paycode": "pcn",
-    "bill_part_total": "19.89",
+    "bill_part_total": "54.88",
     "bill_part_desc": "חיובים קבועים",
     "bill_part_msg": "חיוב בגין שרותים בתשלום חודשי קבוע",
+    "paycode": "pcn",
     "services": [
     {
-    "name": "תשלום חודשי קבוע (דמי מנוי)",
-    "rate": "20.19",
-    "total": "20.19"
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 30 ימים מ 15/04/20 עד 14/05/20",
+    "rate": "39.89",
+    "total": "39.89"
     },
     {
-    "name": "חסימת נפח גלישה גמיש",
-    "rate": "10.01",
-    "total": "10.01"
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 7 ימים מ 15/05/20 עד 21/05/20",
+    "rate": "39.90",
+    "total": "9.01"
     },
     {
-    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "name": "פלאפון CYBER BASIC לגלישה בטוחה ברשת",
     "rate": "0.00",
     "total": "0.00"
-    }
-    ],
-    "submsg": "smth"
     },
     {
-    "paycode": "pch",
-    "bill_part_total": "35.30",
-    "bill_part_desc": "חיובים משתנים",
-    "bill_part_msg": "חיוב על פי שימוש",
-    "services": [
+    "name": "הטבת גלישה 10GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 30GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
     {
     "name": "מהירות מקסימאלית ברשת פלאפון",
     "rate": "0.00",
     "total": "0.00"
     },
     {
-    "name": "נפח גלישת אינטרנט כלול ב -  MB",
-    "rate": "20.00",
-    "total": "20.00"
+    "name": "חסימת נפח גלישה גמיש",
+    "rate": "0.00",
+    "total": "0.00"
     },
     {
-    "name": "דקות שיחה חינם 1800",
-    "rate": "29.89",
-    "total": "29.89"
+    "name": "שיר בהמתנה עבור 30 ימים מ 15/04/20 עד 14/05/20",
+    "rate": "4.89",
+    "total": "4.89"
     },
     {
-    "name": "חבילת גלישה בנפח 100GB",
+    "name": "חבילת Pelephone Cloud ומידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת גלישה 10GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 30GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חסימת נפח גלישה גמיש",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שיר בהמתנה עבור 7 ימים מ 15/05/20 עד 21/05/20",
+    "rate": "4.89",
+    "total": "1.10"
+    },
+    {
+    "name": "חבילת Pelephone Cloud ומידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פלאפון CYBER BASIC לגלישה בטוחה ברשת",
     "rate": "0.00",
     "total": "0.00"
     }
     ],
-    "submsg": "smth"
+    "submsg": "-1"
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "חיובים משתנים",
+    "bill_part_msg": "חיוב על פי שימוש",
+    "paycode": "pch",
+    "services": [
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "119:56",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "28389.912",
+    "total": ""
+    }
+    ],
+    "submsg": "-1"
     }
     ],
     "service_usage": [
@@ -696,98 +651,80 @@
     "in": "in",
     "used": [
     {
-    "GB": "23.63GB מתוך  25.5GB",
-    "procentGB": "85",
-    "Min": "137 מתוך 252",
-    "procentMin": "55",
-    "SMS": "110  מתוך 200",
-    "procentSms": "60"
-    }
-    ]
-    },
-    {
-    "in": "out",
-    "used": [
-    {
-    "GB": "23.63GB מתוך  25.5GB",
-    "procentGB": "20",
-    "Min": "137 מתוך 252",
-    "procentMin": "10",
-    "SMS": "110  מתוך 200",
-    "procentSms": "30"
+    "GB": "677:25 מתוך 25:13",
+    "procentGB": "4",
+    "Min": "17176.760 מתוך 5328.887",
+    "procentMin": "31",
+    "SMS": "",
+    "procentSms": ""
     }
     ]
     }
     ],
     "msgbox": [
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
+    "msg": "תשלום חודשי קבוע 3 -  1 מנויים במסלול: 39.90 ש''ח לכל מנוי, 6 -  4 מנויים במסלול: 34.90 ש''ח לכל מנוי, 7  מנויים ומעלה במסלול: 29.90 ש''ח לכל מנוי. התעריפים בתוקף במשך 12 החודשים הראשונים. החל מהחודש ה -  13 : 3 -   1 מנויים במסלול: 45.80 ש''ח לכל מנוי, 6 -  4 מנויים במסלול: 40.80 ש''ח לכל מנוי, 7 מנויים ומעלה במסלול:  35.80 ש''ח לכל מנוי., עד 3000 דקות שיחה אל מנויי מפעילי תקשורת ישראלים, בישראל ועד 3000 הודעות SMS אל  מנויי מפעילים סלולאריים ישראלים, בישראל. הדקות וה - SMS בשימוש אישי, סביר והוגן כהגדרתו",
+    "date": "NO_DATE"
     },
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
+    "msg": "בנספח. בסיום מכסת הדקות ימשיך השירות בתשלום כדלקמן:, תעריף דקת שיחה/הודעת SMS מעבר לכמות זו ובשימוש לא  סביר והוגן 19.00 אג' לפירוט היעדים שאינם נכללים במכסות הדקות וההודעות שלעיל והחיוג אליהם עיין בהמשך  הנספח. (התעריפים כוללים מע''מ).",
+    "date": "NO_DATE"
     },
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
+    "msg": "המידע מתייחס לפרטי התוכנית שבתוקף החל מ - 8/2/2020. החל מתאריך 15/7/2020 יחול שינוי בתעריפים לתעריפים  הרלוונטיים לתקופה שלאחר התקופה הראשונית כמפורט לעיל.",
+    "date": "NO_DATE"
     },
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
+    "msg": "ניתן לעיין במידע המלא בהסכם.",
+    "date": "NO_DATE"
     },
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
+    "msg": "|BOLD|להלן מועדי סיום תקופות שירותים/הטבות /הנחות:|BOLD|",
+    "date": "NO_DATE"
     },
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
+    "msg": "אתה נהנה מ -  הטבת גלישה 10GB  למנוי 0503492002 , להזכירך תקופת ההטבה תסתיים בתאריך |BOLD_C|14/08/2020|BOLD_C|",
+    "date": "NO_DATE"
     },
     {
-    "date": "10/10/15",
-    "msg": "stmh 1"
-    },
-    {
-    "date": "10/10/15",
-    "msg": "stmh 1"
-    },
-    {
-    "date": "10/10/15",
-    "msg": "stmh 1"
-    },
-    {
-    "date": "10/10/15",
-    "msg": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tempus purus. Suspendisse mattis enim quis felis placerat, eget sagittis dolor scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus iaculis, magna nec pharetra hendrerit, ligula mi viverra libero, et consequat ipsum enim vel nibh. Mauris ac fermentum mauris. Fusce accumsan tempor eros id feugiat. Sed nibh eros, placerat sit amet laoreet nec, bibendum at nulla."
-    },
-    {
-    "date": "10/10/15",
-    "msg": "stmh 1"
-    },
-    {
-    "date": "10/11/20",
-    "msg": "stmh 2"
+    "msg": "אתה נהנה מהטבת הצטרפות לתוכנית Family Plan New  בתעריף של 39.90  ש''ח לחודש למנוי 0503492002 , להזכירך  תקופת ההטבה תסתיים בתאריך |BOLD_C|15/07/2020|BOLD_C| ותנאי התוכנית יתעדכנו ל -  45.80  ש''ח לחודש עפ''י הסכם  ההצטרפות.",
+    "date": "NO_DATE"
     }
     ]
     },
     {
     "index": "3",
-    "subsciber": "059-6950587",
-    "total": "17.00 ₪",
+    "subsciber": "0504482002",
+    "total": "&#8362; 61.16",
     "bill_parts": [
     {
-    "paycode": "pcn",
-    "bill_part_total": "19.89",
+    "bill_part_total": "61.16",
     "bill_part_desc": "חיובים קבועים",
     "bill_part_msg": "חיוב בגין שרותים בתשלום חודשי קבוע",
+    "paycode": "pcn",
     "services": [
     {
-    "name": "תשלום חודשי קבוע (דמי מנוי)",
-    "rate": "19.89",
-    "total": "19.89"
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 30 ימים מ 15/04/20 עד 14/05/20",
+    "rate": "49.89",
+    "total": "49.89"
     },
     {
-    "name": "חסימת נפח גלישה גמיש",
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 7 ימים מ 15/05/20 עד 21/05/20",
+    "rate": "49.89",
+    "total": "11.27"
+    },
+    {
+    "name": "חבילת גלישה בנפח 50GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
     "rate": "0.00",
     "total": "0.00"
     },
@@ -795,38 +732,73 @@
     "name": "Pelephone CYBER לגלישה בטוחה ברשת",
     "rate": "0.00",
     "total": "0.00"
-    }
-    ],
-    "submsg": "smth"
     },
     {
-    "paycode": "pch",
-    "bill_part_total": "425.30",
-    "bill_part_desc": "חיובים משתנים",
-    "bill_part_msg": "חיוב על פי שימוש",
-    "services": [
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת גלישה 10GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 50GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
     {
     "name": "מהירות מקסימאלית ברשת פלאפון",
     "rate": "0.00",
     "total": "0.00"
     },
     {
-    "name": "נפח גלישת אינטרנט כלול ב -  MB",
-    "rate": "20.00",
-    "total": "20.00"
+    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
     },
     {
-    "name": "דקות שיחה חינם 1800",
-    "rate": "29.89",
-    "total": "29.89"
-    },
-    {
-    "name": "חבילת גלישה בנפח 100GB",
+    "name": "שירות Pelephone Cloud",
     "rate": "0.00",
     "total": "0.00"
     }
     ],
-    "submsg": "smth"
+    "submsg": "-1"
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "חיובים משתנים",
+    "bill_part_msg": "חיוב על פי שימוש",
+    "paycode": "pch",
+    "services": [
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "415:44",
+    "total": ""
+    },
+    {
+    "name": "דקות שיחה ללא חיוב",
+    "rate": "11:28",
+    "total": ""
+    },
+    {
+    "name": "שליחת SMS  -  יחידות כלולות",
+    "rate": "1",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "4506.291",
+    "total": ""
+    }
+    ],
+    "submsg": "-1"
     }
     ],
     "service_usage": [
@@ -834,88 +806,159 @@
     "in": "in",
     "used": [
     {
-    "GB": "23.63GB מתוך  25.5GB",
-    "procentGB": "85",
-    "Min": "137 מתוך 252",
-    "procentMin": "55",
-    "SMS": "110  מתוך 200",
-    "procentSms": "60"
-    }
-    ]
-    },
-    {
-    "in": "out",
-    "used": [
-    {
-    "GB": "20.63GB מתוך  25.5GB",
-    "procentGB": "20",
-    "Min": "10 מתוך 252",
-    "procentMin": "10",
-    "SMS": "30  מתוך 200",
-    "procentSms": "30"
+    "GB": "677:25 מתוך 68:49",
+    "procentGB": "10",
+    "Min": "21801.267 מתוך 562.856",
+    "procentMin": "3",
+    "SMS": "677 מתוך 1",
+    "procentSms": "0"
     }
     ]
     }
     ],
-    "msgbox": "-1"
+    "msgbox": [
+    {
+    "msg": "תשלום חודשי קבוע 49.90 ש''ח למנוי, 2 מנויים במסלול: 44.90 ש''ח לכל מנוי, 3 מנויים ומעלה במסלול: 39.90 ש''ח  לכל מנוי. התעריפים בתוקף במשך 12 החודשים הראשונים החל מהחודש ה -  13: 89.00 ש''ח לכל מנוי, עד 3000 דקות  שיחה אל מנויי מפעילי תקשורת ישראלים, בישראל ועד 3000 הודעות SMS אל מנויי מפעילים סלולאריים ישראלים,  בישראל. הדקות וה - SMS בשימוש אישי, סביר והוגן כהגדרתו בנספח. בסיום מכסת הדקות ימשיך השירות בתשלום כדלקמן:, תעריף דקת שיחה/הודעת SMS מעבר לכמות זו ובשימוש לא סביר והוגן 49.00 אג' לפירוט היעדים",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "שאינם נכללים במכסות הדקות וההודעות שלעיל והחיוג אליהם עיין בהמשך הנספח. (התעריפים כוללים מע''מ).",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "המידע מתייחס לפרטי התוכנית שבתוקף החל מ - 8/2/2020. החל מתאריך 24/6/2021 יחול שינוי בתעריפים לתעריפים  הרלוונטיים לתקופה שלאחר התקופה הראשונית כמפורט לעיל.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "ניתן לעיין במידע המלא בהסכם.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "לקראת סיום תקופת ההטבה שלך במסלול, פלאפון מעניקה לך שנה נוספת במסלול ללא שינוי בתשלום",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "החודשי הקבוע שלו. הטבות שאינן חלק מהתכנית יסתיימו במועד ולא יוארכו.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "הטבה זו תכנס לתוקף באופן אוטומטי בסיום תקופת ההטבה המקורית ותהיה בתוקף כל עוד המנוי במסלול.",
+    "date": "NO_DATE"
+    }
+    ]
     },
     {
     "index": "4",
-    "subsciber": "058-6950587",
-    "total": "17.00 ₪",
+    "subsciber": "0504492002",
+    "total": "&#8362; 48.89",
     "bill_parts": [
     {
-    "paycode": "pcn",
-    "bill_part_total": "19.89",
+    "bill_part_total": "48.89",
     "bill_part_desc": "חיובים קבועים",
     "bill_part_msg": "חיוב בגין שרותים בתשלום חודשי קבוע",
+    "paycode": "pcn",
     "services": [
     {
-    "name": "תשלום חודשי קבוע (דמי מנוי)",
-    "rate": "19.89",
-    "total": "19.89"
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 30 ימים מ 15/04/20 עד 14/05/20",
+    "rate": "39.89",
+    "total": "39.89"
     },
     {
-    "name": "חסימת נפח גלישה גמיש",
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 7 ימים מ 15/05/20 עד 21/05/20",
+    "rate": "39.90",
+    "total": "9.01"
+    },
+    {
+    "name": "פלאפון CYBER BASIC לגלישה בטוחה ברשת",
     "rate": "0.00",
     "total": "0.00"
     },
     {
-    "name": "Pelephone CYBER לגלישה בטוחה ברשת",
+    "name": "הטבת גלישה 10GB",
     "rate": "0.00",
     "total": "0.00"
-    }
-    ],
-    "submsg": "smth"
     },
     {
-    "paycode": "pch",
-    "bill_part_total": "425.30",
-    "bill_part_desc": "חיובים משתנים",
-    "bill_part_msg": "חיוב על פי שימוש",
-    "services": [
+    "name": "חבילת גלישה בנפח 30GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
     {
     "name": "מהירות מקסימאלית ברשת פלאפון",
     "rate": "0.00",
     "total": "0.00"
     },
     {
-    "name": "נפח גלישת אינטרנט כלול ב -  MB",
-    "rate": "20.00",
-    "total": "20.00"
+    "name": "חבילת Pelephone Cloud ומידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
     },
     {
-    "name": "דקות שיחה חינם 1800",
-    "rate": "29.89",
-    "total": "29.89"
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
     },
     {
-    "name": "חבילת גלישה בנפח 100GB",
+    "name": "הטבת גלישה 10GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 30GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת Pelephone Cloud ומידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פלאפון CYBER BASIC לגלישה בטוחה ברשת",
     "rate": "0.00",
     "total": "0.00"
     }
     ],
-    "submsg": "smth"
+    "submsg": "-1"
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "חיובים משתנים",
+    "bill_part_msg": "חיוב על פי שימוש",
+    "paycode": "pch",
+    "services": [
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "176:11",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "11746.566",
+    "total": ""
+    }
+    ],
+    "submsg": "-1"
     }
     ],
     "service_usage": [
@@ -923,30 +966,231 @@
     "in": "in",
     "used": [
     {
-    "GB": "23.63GB מתוך  25.5GB",
-    "procentGB": "85",
-    "Min": "137 מתוך 252",
-    "procentMin": "55",
-    "SMS": "110  מתוך 200",
-    "procentSms": "60"
-    }
-    ]
-    },
-    {
-    "in": "out",
-    "used": [
-    {
-    "GB": "20.63GB מתוך  25.5GB",
-    "procentGB": "20",
-    "Min": "10 מתוך 252",
-    "procentMin": "10",
-    "SMS": "30  מתוך 200",
-    "procentSms": "30"
+    "GB": "677:25 מתוך 40:60",
+    "procentGB": "6",
+    "Min": "17176.760 מתוך 1134.347",
+    "procentMin": "7",
+    "SMS": "",
+    "procentSms": ""
     }
     ]
     }
     ],
-    "msgbox": "-1"
+    "msgbox": [
+    {
+    "msg": "תשלום חודשי קבוע 3 -  1 מנויים במסלול: 39.90 ש''ח לכל מנוי, 6 -  4 מנויים במסלול: 34.90 ש''ח לכל מנוי, 7  מנויים ומעלה במסלול: 29.90 ש''ח לכל מנוי. התעריפים בתוקף במשך 12 החודשים הראשונים. החל מהחודש ה -  13 : 3 -   1 מנויים במסלול: 45.80 ש''ח לכל מנוי, 6 -  4 מנויים במסלול: 40.80 ש''ח לכל מנוי, 7 מנויים ומעלה במסלול:  35.80 ש''ח לכל מנוי., עד 3000 דקות שיחה אל מנויי מפעילי תקשורת ישראלים, בישראל ועד 3000 הודעות SMS אל  מנויי מפעילים סלולאריים ישראלים, בישראל. הדקות וה - SMS בשימוש אישי, סביר והוגן כהגדרתו",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "בנספח. בסיום מכסת הדקות ימשיך השירות בתשלום כדלקמן:, תעריף דקת שיחה/הודעת SMS מעבר לכמות זו ובשימוש לא  סביר והוגן 19.00 אג' לפירוט היעדים שאינם נכללים במכסות הדקות וההודעות שלעיל והחיוג אליהם עיין בהמשך  הנספח. (התעריפים כוללים מע''מ).",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "המידע מתייחס לפרטי התוכנית שבתוקף החל מ - 8/2/2020. החל מתאריך 15/7/2020 יחול שינוי בתעריפים לתעריפים  הרלוונטיים לתקופה שלאחר התקופה הראשונית כמפורט לעיל.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "ניתן לעיין במידע המלא בהסכם.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "|BOLD|להלן מועדי סיום תקופות שירותים/הטבות /הנחות:|BOLD|",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "אתה נהנה מ -  הטבת גלישה 10GB  למנוי 0504492002 , להזכירך תקופת ההטבה תסתיים בתאריך |BOLD_C|14/08/2020|BOLD_C|",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "אתה נהנה מהטבת הצטרפות לתוכנית Family Plan New  בתעריף של 39.90  ש''ח לחודש למנוי 0504492002 , להזכירך  תקופת ההטבה תסתיים בתאריך |BOLD_C|15/07/2020|BOLD_C| ותנאי התוכנית יתעדכנו ל -  45.80  ש''ח לחודש עפ''י הסכם  ההצטרפות.",
+    "date": "NO_DATE"
+    }
+    ]
+    },
+    {
+    "index": "5",
+    "subsciber": "0509500767",
+    "total": "&#8362; 48.89",
+    "bill_parts": [
+    {
+    "bill_part_total": "48.89",
+    "bill_part_desc": "חיובים קבועים",
+    "bill_part_msg": "חיוב בגין שרותים בתשלום חודשי קבוע",
+    "paycode": "pcn",
+    "services": [
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 30 ימים מ 15/04/20 עד 14/05/20",
+    "rate": "39.89",
+    "total": "39.89"
+    },
+    {
+    "name": "תשלום חודשי קבוע (דמי מנוי) עבור 7 ימים מ 15/05/20 עד 21/05/20",
+    "rate": "39.90",
+    "total": "9.01"
+    },
+    {
+    "name": "פלאפון CYBER BASIC לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת גלישה 10GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 30GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חסימת נפח גלישה גמיש",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת Pelephone Cloud ומידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "הטבת גלישה 10GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת גלישה בנפח 30GB",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פתיחה לקבלת מידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "מהירות מקסימאלית ברשת פלאפון",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חסימת נפח גלישה גמיש",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "חבילת Pelephone Cloud ומידע שיווקי",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "שירות Pelephone Cloud",
+    "rate": "0.00",
+    "total": "0.00"
+    },
+    {
+    "name": "פלאפון CYBER BASIC לגלישה בטוחה ברשת",
+    "rate": "0.00",
+    "total": "0.00"
+    }
+    ],
+    "submsg": "-1"
+    },
+    {
+    "bill_part_total": "0.00",
+    "bill_part_desc": "חיובים משתנים",
+    "bill_part_msg": "חיוב על פי שימוש",
+    "paycode": "pch",
+    "services": [
+    {
+    "name": "דקות שיחה כלולות",
+    "rate": "497:47",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט ב -  MB*",
+    "rate": "30.882",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט כלול ב -  MB",
+    "rate": "40932.777",
+    "total": ""
+    },
+    {
+    "name": "נפח גלישת אינטרנט ב -  MB מ - 0.0019 עד ",
+    "rate": "נפח גלישת אינטרנט ב -  MB מ - 0.0019 עד ",
+    "total": "נפח גלישת אינטרנט ב -  MB מ - 0.0019 עד "
+    },
+    {
+    "name": " 976562.498 MB",
+    "rate": "",
+    "total": ""
+    }
+    ],
+    "submsg": "-1"
+    }
+    ],
+    "service_usage": [
+    {
+    "in": "in",
+    "used": [
+    {
+    "GB": "677:25 מתוך 34:41",
+    "procentGB": "5",
+    "Min": "17176.760 מתוך 0",
+    "procentMin": "0",
+    "SMS": "",
+    "procentSms": ""
+    }
+    ]
+    }
+    ],
+    "msgbox": [
+    {
+    "msg": "תשלום חודשי קבוע 3 -  1 מנויים במסלול: 39.90 ש''ח לכל מנוי, 6 -  4 מנויים במסלול: 34.90 ש''ח לכל מנוי, 7  מנויים ומעלה במסלול: 29.90 ש''ח לכל מנוי. התעריפים בתוקף במשך 12 החודשים הראשונים. החל מהחודש ה -  13 : 3 -   1 מנויים במסלול: 45.80 ש''ח לכל מנוי, 6 -  4 מנויים במסלול: 40.80 ש''ח לכל מנוי, 7 מנויים ומעלה במסלול:  35.80 ש''ח לכל מנוי., עד 3000 דקות שיחה אל מנויי מפעילי תקשורת ישראלים, בישראל ועד 3000 הודעות SMS אל  מנויי מפעילים סלולאריים ישראלים, בישראל. הדקות וה - SMS בשימוש אישי, סביר והוגן כהגדרתו",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "בנספח. בסיום מכסת הדקות ימשיך השירות בתשלום כדלקמן:, תעריף דקת שיחה/הודעת SMS מעבר לכמות זו ובשימוש לא  סביר והוגן 19.00 אג' לפירוט היעדים שאינם נכללים במכסות הדקות וההודעות שלעיל והחיוג אליהם עיין בהמשך  הנספח. (התעריפים כוללים מע''מ).",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "המידע מתייחס לפרטי התוכנית שבתוקף החל מ - 8/2/2020. החל מתאריך 15/7/2020 יחול שינוי בתעריפים לתעריפים  הרלוונטיים לתקופה שלאחר התקופה הראשונית כמפורט לעיל.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "ניתן לעיין במידע המלא בהסכם.",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "|BOLD|להלן מועדי סיום תקופות שירותים/הטבות /הנחות:|BOLD|",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "אתה נהנה מ -  הטבת גלישה 10GB  למנוי 0509500767 , להזכירך תקופת ההטבה תסתיים בתאריך |BOLD_C|14/08/2020|BOLD_C|",
+    "date": "NO_DATE"
+    },
+    {
+    "msg": "אתה נהנה מהטבת הצטרפות לתוכנית Family Plan New  בתעריף של 39.90  ש''ח לחודש למנוי 0509500767 , להזכירך  תקופת ההטבה תסתיים בתאריך |BOLD_C|15/07/2020|BOLD_C| ותנאי התוכנית יתעדכנו ל -  45.80  ש''ח לחודש עפ''י הסכם  ההצטרפות.",
+    "date": "NO_DATE"
+    }
+    ]
     }
     ]
     }

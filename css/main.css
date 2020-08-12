@@ -1,6 +1,6 @@
 @font-face {
     font-family: fbspaceren;
-    src: url(fonts/fbspaceren-regular-webfont.ttf);
+    src: url(fonts/fbspaceren-regular-webfont.ttf) ;
 }
 
 @font-face {
@@ -105,7 +105,9 @@
     .bll-period {
         width: 49%;
     }
-
+    .title {
+        font-size: 20px;
+    }
 
     .t-cntr {
         text-align: center;
@@ -145,7 +147,10 @@
     }
     .payment_total_row {
         width: 100%;
+    }
 
+    .payment_total_rowT {
+        width: 100%;
     }
 
     .p-rght {
@@ -158,6 +163,25 @@
 
     .col-sml {
         width: 40%;
+    }
+
+    .pcn {
+        transform: scale(0.75);
+    }
+    .pch {
+        transform: scale(0.75);
+    }
+    .pad {
+        transform: scale(0.75);
+    }
+    .disc {
+        transform: scale(0.75);
+    }
+    .onep {
+        transform: scale(0.75);
+    }
+    .eqip {
+        transform: scale(0.75);
     }
 }
 
@@ -246,7 +270,9 @@
     .bll-hdr{
         flex-flow: row;
     }
-
+    .title {
+        font-size: 25px;
+    }
 
     .usage {
         width: 35%;
@@ -298,6 +324,11 @@
         width: 65%;
         padding-left: 9%;
     }
+
+    .payment_total_rowT {
+        width: 75%;
+    }
+
 
     .lineAft {
         transform: scale(0.65);
@@ -447,7 +478,10 @@
     .payment_total_row {
         width: 65%;
         padding-left: 9%;
+    }
 
+    .payment_total_rowT {
+        width: 75%;
     }
 
     .wrp-cnt{
@@ -456,6 +490,9 @@
 
     .col-sml {
         width: 45%;
+    }
+    .title {
+        font-size: 25px;
     }
 }
 
