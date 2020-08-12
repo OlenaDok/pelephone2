@@ -17,7 +17,7 @@ function displayData() {
     var arrow = document.getElementById("lbl-toggle-arr");
 
     // If the checkbox is checked, display the output text
-    if (checkBox.checked == true){
+    if (checkBox.checked === true){
         console.log('do smth');
         text.style.display = "flex";
         y = 'rotate(-90deg) translateX(-15px)';

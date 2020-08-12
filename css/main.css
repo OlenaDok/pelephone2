@@ -159,7 +159,16 @@
     .wrp-cnt{
         display: none;
     }
+    .item_total {
+        font-size: 22px;
+    }
 
+    .data_total {
+        font-size: 22px;
+    }
+    .subtitle {
+        font-size: 18px;
+    }
 
     .col-sml {
         width: 40%;
@@ -328,7 +337,12 @@
     .payment_total_rowT {
         width: 75%;
     }
-
+    .item_total {
+        font-size: 25px;
+    }
+    .data_total {
+        font-size: 25px;
+    }
 
     .lineAft {
         transform: scale(0.65);
@@ -340,6 +354,9 @@
 
     .col-sml {
         width: 45%;
+    }
+    .subtitle {
+        font-size: 20px;
     }
 }
 
@@ -494,6 +511,17 @@
     .title {
         font-size: 25px;
     }
+    .item_total {
+        font-size: 25px;
+    }
+    .data_total {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
 }
 
 

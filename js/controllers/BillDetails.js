@@ -205,6 +205,9 @@ myApp.controller('SubsDetails', function ($scope, ChartService) {
         //partToOpen_status = false;
         $scope.showp2 = -1;
         $scope.getdetails(0);
+
+        var checkBox = document.getElementById("collapsible");
+        checkBox.checked = false;
     };
 
     $scope.showI = function(index) {
